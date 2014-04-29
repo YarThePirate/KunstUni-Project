@@ -1,0 +1,7 @@
+- MAKE IT TOUCH-FRIENDLY; NO DESKTOP VERSION
+	- TEST THE CRAP OUT OF THE TOUCH VERSION!!!!!
+
+- Add CSS font definitions (Find them on the CSS stylesheet from the link to the vertical version
+- Change start screen to the start screen you were sent
+- Add sounds to grabbing icons
+- Add game over gif to the end screen

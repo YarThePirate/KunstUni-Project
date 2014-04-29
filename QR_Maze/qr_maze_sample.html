@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta author="Matt Scola">
+	
+	<title>Labyrinth</title>
+	<style>
+		
+		body {
+			background-color: black;
+		}
+
+		.qrcode {
+			background-image: url("qrcode_final.png");
+			height: 2000px; width: 2000px;
+			z-index: 0;
+		}
+
+		#overlay {
+			border-spacing: 0;
+			height: 100%; width: 100%;
+			margin: 0;
+			padding: 0;
+			z-index: -1;
+		}
+
+		#arrowTable {
+			position: fixed;
+			height: 600px; width: 600px;
+			top: 50%; left: 50%;
+			margin: -300px 0 0 -300px;
+			table-layout: fixed;
+			z-index: 3;
+			display: none;
+		}
+
+		#arrowTable td {
+			height: 200px; width: 200px;
+			padding: 0;
+			margin: 0;
+			border: dotted 2px red;
+		}
+
+		#arrowTable td img {
+			margin-left: 0;
+			border: dotted 1px green;
+		}
+
+		.tableCell {
+			background-color: transparent;
+			padding: 0;
+			margin: 0;
+			color: blue;
+			text-align: center;
+			height: 10%;
+			width: 10%;
+		}
+
+		.dark {
+			height: 100%;
+			width: 100%;
+			background-color: black;
+			border: 0;
+			color: white;
+			z-index: 2;
+		}
+
+	.home {
+		height: 50px; width: 100px;
+		bottom: 0; right: 0;
+		position: fixed;
+		margin: 5px;
+		border-radius: 2px;
+		background-color: orange;
+		text-align: center;
+		padding-top: 20px;
+	}
+
+	.home a {
+		text-decoration: none;
+		color: black;
+		font-family: sans-serif;
+		font-size: 24px;
+	}
+
+	#up_arrow {
+		-ms-transform: rotate(180deg); /* IE 9 */
+		-webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
+		-moz-transform: rotate(180deg);
+		-o-transform: rotate(180deg);
+		transform: rotate(180deg);
+	}
+
+	#right_arrow {
+		-ms-transform: rotate(-90deg); /* IE 9 */
+		-webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
+		-moz-transform: rotate(-90deg);
+		-o-transform: rotate(-90deg);
+		transform: rotate(-90deg);
+	}
+
+	#left_arrow {
+		-ms-transform: rotate(90deg); /* IE 9 */
+		-webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
+		-moz-transform: rotate(90deg);
+		-o-transform: rotate(90deg);
+		transform: rotate(90deg);
+	}
+		
+	</style>
+
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
+
+</head>
+
+<!-- START BODY -->
+<body>
+	<table id="arrowTable">
+		<tr>
+			<td></td>
+			<td><img id="up_arrow" src="arrowDown_2.png"></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><img id="left_arrow" src="arrowDown_2.png"></td>
+			<td></td>
+			<td><img id="right_arrow" src="arrowDown_2.png"></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><img id="down_arrow" src="arrowDown_2.png"></td>
+			<td></td>
+		</tr>
+	</table>
+	
+	<div class="qrcode">
+	
+		<table id="overlay">
+			<!-- 10 x 10 Table filled in by the script below -->
+		</table>
+	</div>
+
+	<div class="home"><a href="../index.html">Home</a></div>
+
+	<script>
+		$(document).ready(function() {
+
+			/*
+				Creates 10 empty rows with unique ids
+			*/
+			for (var x = 0; x < 10; x++) {
+				$("#overlay").append("<tr id=\"row" + x + "\"></tr>");
+			};
+			
+			/*
+				Creates 10 cells in each row.
+				Use row ID and cell value to
+				access individual cells
+			*/
+			for (var i = 0; i < 10; i++) {
+				$("#overlay tr").append("<td class=\"tableCell\" value=\"" + i + "\"><div class=\"dark\"></div></td>")
+			};
+
+
+			/*
+				Places links at X random spots on the
+				#overlay table
+			*/
+			for (var i = 0; i < 9; i++) {
+				var randomRow = Math.floor(Math.random() * 10);
+				var randomCol = Math.floor(Math.random() * 10)
+				var $randomCell = document.getElementById("overlay").rows[randomRow].cells.item(randomCol);
+				$($randomCell).html("Cell #"+i+"; ["+randomRow+", "+randomCol+"]");
+			}
+
+			$(".dark").click(function() {
+				$(this).fadeOut();
+				$("#arrowTable").fadeIn('slow').delay(250).fadeOut('slow');
+			});
+		});
+	</script>
+
+</body>
+</html>

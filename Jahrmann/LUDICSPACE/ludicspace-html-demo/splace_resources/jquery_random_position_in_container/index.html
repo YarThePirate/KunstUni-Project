@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Box Random Position</title>
+	<script type="text/javascript" src="jquery-1.4.4.min.js"></script>
+	<script type="text/javascript">
+		/* this function from:
+		 * http://www.admixweb.com/2010/08/24/javascript-tip-get-a-random-number-between-two-integers/
+		 */
+		function randomFromTo(from, to){
+			return Math.floor(Math.random() * (to - from + 1) + from);
+		}
+  
+		function moveRandom(id) {
+			/* get container position and size
+			 * -- access method : cPos.top and cPos.left */
+			var cPos = $('#container').offset();
+			var cHeight = $('#container').height();
+			var cWidth = $('#container').width();
+			
+			// get box padding (assume all padding have same value)
+			var pad = parseInt($('#container').css('padding-top').replace('px', ''));
+			
+			// get movable box size
+			var bHeight = $('#'+id).height();
+			var bWidth = $('#'+id).width();
+			
+			// set maximum position
+			maxY = cPos.top + cHeight - bHeight - pad;
+			maxX = cPos.left + cWidth - bWidth - pad;
+			
+			// set minimum position
+			minY = cPos.top + pad;
+			minX = cPos.left + pad;
+			
+			// set new position			
+			newY = randomFromTo(minY, maxY);
+			newX = randomFromTo(minX, maxX);
+			
+			$('div').animate({
+				top: newY,
+				left: newX
+				}, 500, function() {
+			});
+		}
+	</script>
+	<style type="text/css">
+		#top {
+			margin: 0 auto;
+			background: #d3d3d3;
+			text-align: center;
+			padding: 10px;
+			width: 500px;
+			margin-bottom: 10px;
+		}
+		#container {
+			margin: 0 auto;
+			width: 500px;
+			height: 500px;
+			background: #0099cc;
+			padding: 10px;
+		}
+		
+		#box {
+			position: absolute;
+			width: 100px;
+			height: 100px;
+			background: #f3f3f3;
+		}
+	</style>
+</head>
+<body>
+	<div id="top">
+		<button id="btmove" onclick="moveRandom('box')">
+			Move Random
+		</button>
+	</div>
+	<div id="container">
+		<div id="box"></div>
+	</div>
+</body>
+</html>

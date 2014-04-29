@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="author" content="Matt Scola">
+
+	<title>Jahrmann</title>
+	<style type="text/css">
+		body {
+			background-color: black;
+		}
+
+		#start_screen {
+			height: 98%; width: 99%;
+			background-color: white;
+			position: absolute;
+			z-index: 1;
+		}
+
+		.start_example {
+			border: 5px solid red;
+			color: red;
+			font-size: 36;
+		}
+
+		.field {
+			border: 5px solid white;
+			border-radius: 5px;
+			height: 95%; width: 95%;
+			position: absolute;
+		}
+
+		.viewer {
+			border: 5px solid white;
+			border-radius: 5px;
+			height: 95%; width: 95%;
+			position: absolute;
+			display: none;
+		}
+
+		.target_image {
+			height: 100px;
+			width: 100px;
+			position: absolute;
+		}
+
+		.gate {
+			height: 20px;
+			width: 50%;
+			position: absolute; left: 25%; top: -15px;
+			background-color: black;
+			border-color: dotted 2px red;
+		}
+
+		.media {
+			height: 50%; width: 50%;
+			top: 25%; left: 25%;
+			border: dotted 2px red;
+			position: absolute;
+			/* NOT IN FINAL PRODUCT: START */
+			text-align: center;
+			color: red;
+			/* NOT IN FINAL PRODUCT: END */
+		}
+
+		button {
+			height: 100px; width: 100px;
+			position: absolute;
+			bottom: 0; right: 0;
+			padding: 0;
+			margin: 5px;
+			background-color: black;
+			border-color: black;
+		}
+
+		button:focus {
+			outline: 0;
+		}
+
+		.home {
+			height: 50px; width: 100px;
+			bottom: 0; right: 0;
+			position: fixed;
+			margin: 5px;
+			border-radius: 2px;
+			background-color: orange;
+			text-align: center;
+			padding-top: 20px;
+			z-index: 2;
+		}
+
+		.home a {
+			text-decoration: none;
+			color: black;
+			font-family: sans-serif;
+			font-size: 24px;
+		}
+
+		.game_over {
+			position: absolute;
+			height: 80px; width: 374px;
+			font-family: sans-serif;
+			font-size: 72px;
+			top: 50%; left: 50%;
+			margin: -40px 0 0 -187px;
+			color: white;
+			display: none;
+		}
+	</style>
+
+	<!--
+		URLS for jquery, jquery UI, and JQuery ScrollTo pluging (local)
+	-->
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
+	<script src="../Scripts/jquery-scrollTo.min.js"></script>
+
+</head>
+
+<body>
+
+	<div id="start_screen">
+		<div class="start_example">Ludic</div>
+		<div class="start_example">Space</div>
+	</div>
+
+	<!--	DELETE BELOW IN FINAL?	-->
+	<div class="home"><a href="../index.html">Home</a></div>
+	<!--	DELETE ABOVE IN FINAL?	-->
+
+	<div class="field">
+		<div class="gate"></div>
+		<div class="target_image"><img src="LUDICSPACE/Icons/Icons/IconAnon.gif"></div>
+		<div class="target_image"><img src="LUDICSPACE/Icons/Icons/IconCam.gif"></div>
+		<div class="target_image"><img src="LUDICSPACE/Icons/Icons/IconGlass.gif"></div>
+		<div class="target_image"><img src="LUDICSPACE/Icons/Icons/IconPacman.gif"></div>
+		<div class="target_image"><img src="LUDICSPACE/Icons/Icons/IconParcour.gif"></div>
+		<div class="target_image"><img src="LUDICSPACE/Icons/Icons/IconSat.gif"></div>
+		<div class="target_image"><img src="LUDICSPACE/Icons/Icons/IconZombie.gif"></div>
+		<div class="game_over"><img src="LUDICSPACE/Icons/Icons/GameOverScreen.gif"></div>
+	</div>
+
+	<div class="viewer">
+		<div class="media">Insert Link To Media Here</div>
+		<button>Click here to return to the first screen</button>
+	</div>
+
+	<!-- Begin Script -->
+	
+	<script>
+		$(document).ready(function() {
+			/* Sets Random starting positions for the images,
+			clustered near the center */
+			var game_counter = 0;
+
+			$('.target_image').each(function() {
+				var randomTop = 25 + Math.floor(Math.random() * 50);
+				var randomLeft = 25 + Math.floor(Math.random() * 50);
+				$(this).css('top', randomTop+'%');
+				$(this).css('left', randomLeft+'%');
+			})
+
+			$(".target_image").draggable( { containment: "parent" });
+			
+			$(".gate").droppable({
+				drop: function(event, ui) {
+					$(".viewer").delay(50).toggle("slide", {direction: "up", easing: "linear"});
+					$(".field").toggle("slide", {direction: "down", easing: "linear"});
+					$("button").html($(ui.draggable).html());
+					$(ui.draggable).fadeOut(500);
+					game_counter++;
+				},
+				tolerance: "touch",
+				start: function(event, ui) {
+					$(".field").html("<embed height='0px' width='0px' src='LUDICSPACE/audio/IconGrab.mp3'>");
+				}
+			});
+
+			/*
+				Code to make the blank start screen fade away
+				and play a sound effect
+			*/
+			$("#start_screen").click(function() {
+				$("#start_screen").html("<embed height='0px' width='0px' src='LUDICSPACE/audio/StartscreenSelect.mp3'>");
+				$("#start_screen").fadeOut();
+			});
+
+			/*
+				Slides the screen down from the media viewer to
+				the image field when the button is clicked.  Also
+				keeps track of how many 
+			*/
+			$("button").click(function() {
+				$(".viewer").toggle("slide", {direction: "up", easing: "linear"});
+				$(".field").delay(50).toggle("slide", {direction: "down", easing: "linear"});
+
+				if (game_counter === 7) {
+					$(".game_over").show();
+					$(".field").html("<embed height='0px' width='0px' src='LUDICSPACE/audio/GameOver.mp3'>");
+				}
+			});
+		});
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta author="Matt Scola">
+
+	<title>Ausstellungsraum</title>
+	<style type="text/css">
+		body {
+			background: url("Resources/austria_background.jpg");
+			background-position: left top;
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-attachment: scroll;
+		}
+
+		#emptyBox {
+			height: 1000px;
+			width: 2000px;
+		}
+
+		#link1 {
+			border: 2px dotted green;
+			position: relative;
+			left: 150px;
+			top: 600px;
+			width: 150px;
+			height: 200px;
+			color: limegreen;
+			text-align: center;
+		}
+
+		#link2 {
+			border: 2px solid red;
+			position: relative;
+			left: 700px;
+			top: 100px;
+			width: 200px;
+			height: 75px;
+			color: limegreen;
+			text-align: center;
+		}
+
+		#link3 {
+			border: 2px solid blue;
+			position: relative;
+			left: 250px;
+			top: 300px;
+			width: 175px;
+			height: 175px;
+			color: limegreen;
+			text-align: center;
+		}
+
+		.home {
+				height: 50px; width: 100px;
+				top: 50%; left: 50%;
+				margin: -25px 0 0 -50px;
+				position: absolute;
+				border-radius: 2px;
+				background-color: orange;
+				text-align: center;
+				padding-top: 20px;
+			}
+
+		.home a {
+			text-decoration: none;
+			color: black;
+			font-family: sans-serif;
+			font-size: 24px;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="emptyBox">
+		<div id="link1">This is Link 1</div>
+		<div id="link2">This is Link 2</div>
+		<div id="link3">This is Link 3</div>
+		<div class="home"><a href="../index.html">Home</a></div>
+	</div>
+</body>
+</html>

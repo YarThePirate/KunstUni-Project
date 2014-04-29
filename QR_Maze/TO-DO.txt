@@ -1,0 +1,2 @@
+- Create start screen (like page 1 in PDF) that disappears click
+- Replace 

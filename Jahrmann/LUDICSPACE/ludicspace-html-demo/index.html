@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta name="viewport" content="width=device-width, minimum-scale=1.0,  maximum-scale=1.0">
+        <link href="http://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" type="text/css" href="css/main.css" />
+        <link rel="stylesheet" type="text/css" href="css/component.css" />
+        <link rel="stylesheet" type="text/css" href="css/intro.css" />
+        <script src="js/randomPos.js"></script>
+        <script src="js/modernizr.custom.js"></script>
+        <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+        <script src="http://code.jquery.com/ui/1.8.21/jquery-ui.min.js"></script>
+        <script src="js/jquery.ui.touch-punch.min.js"></script>
+        
+
+        <!--[if lt IE 9]>
+            <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+        <![endif]-->
+        </head>
+    <body>
+<!--
+      <div class="os-phrases" id="os-phrases">
+                <h2>Ludic Century</h2>
+				<h2>Zeitalter</h2>
+				<h2>der alltäglichen</h2>
+				<h2>Verspieltheit</h2>
+				<h2>im Umgang</h2>
+				<h2>mit dem</h2>
+				<h2>Digitalen</h2>
+				<h2>LUDIC SPACE</h2>
+			</div>
+		</div>   
+    Test-Button
+        <button onclick="scramble();">
+			Scramble-Test
+		</button>
+-->
+<div id="box">
+            <div class="md-trigger md-setperspective" data-modal="modal-19" id="Button1">
+                <img src="https://dl.dropboxusercontent.com/sh/o2yusyykpxvltyp/c8iOvaXNtP/PxICONS/schwammerl.gif" alt="Mushroom" class="button-ani"/>
+            </div>
+            <div class="md-trigger md-setperspective" data-modal="modal-18" id="Button2">
+                <img src="https://dl.dropboxusercontent.com/sh/o2yusyykpxvltyp/y61OjQD-Hc/PxICONS/anonymous.gif" alt="Anonymous" class="button-ani"/>
+            </div>
+            <div class="md-trigger md-setperspective" data-modal="modal-17" id="Button3">
+                <img src="https://dl.dropboxusercontent.com/sh/o2yusyykpxvltyp/Hj5wIe6qpb/PxICONS/satellite.gif" alt="Satellite" class="button-ani"/>
+            </div>
+            <div class="md-trigger md-setperspective" data-modal="modal-16" id="Button4">
+                <img src="https://dl.dropboxusercontent.com/sh/o2yusyykpxvltyp/e0XdJEf201/PxICONS/Pacman.gif" alt="PacMan" class="button-ani"/>
+            </div>
+            <div class="md-trigger md-setperspective" data-modal="modal-15" id="Button5">
+                <img src="https://dl.dropboxusercontent.com/sh/o2yusyykpxvltyp/ivMtWHQrP2/PxICONS/BigBrother.gif" alt="BigBrother" class="button-ani"/>
+            </div>
+            <div class="md-trigger md-setperspective" data-modal="modal-14" id="Button6">
+                <img src="https://dl.dropboxusercontent.com/sh/o2yusyykpxvltyp/S6xVIa7XhI/PxICONS/zombie.gif" alt="Zombie" class="button-ani"/>
+            </div>
+            <div class="md-trigger md-setperspective" data-modal="modal-13" id="Button7">
+                <img src="https://dl.dropboxusercontent.com/sh/o2yusyykpxvltyp/Px5azujBeg/PxICONS/gglass.gif" alt="Glass" class="button-ani"/></div>
+</div>            
+        <div id="dropZone">Drop it here!</div>
+        
+<!------- Animation Mushroom ------->
+        <div class="md-modal md-effect-19" id="modal-19">
+			<div class="md-content">
+				<div>
+                    <div class="md-close"><i class="fui-cross"></i></div>
+                    <div class="md-frame">
+                    <iframe class="video-frame" width="100%" height="315" src="//www.youtube.com/embed/67qqEcGDC0s?rel=0" frameborder="0" allowfullscreen></iframe>
+					<p class="credits">Credits: <i>Anonymous</i>, <a href="">Test</a> (YouTube)</p>
+                    </div>
+                    <h3 class="quote">
+                    »Räume werden wahrgenommen, erkannt und gelebt.«
+                    </h3>
+				</div>
+			</div>
+		</div>
+        
+<!------- Animation Anonymous ------->
+        <div class="md-modal md-effect-19" id="modal-18">
+			<div class="md-content">
+				<div>
+                    <div class="md-close"><i class="fui-cross"></i></div>
+                    <h3 class="quote">
+                    »Mit Hilfe von kommerziellen elektronischen sozialen Netzwerken platzten 2013 auch die von der Europäischen Union projektierten "Acta Gesetze", erstmals wegen erfolgreichen öffentlichen Protesten der Netzbewegung. Organisiert waren diese wiese ein Urban Game, mit Mobile Phones und Google Maps.«
+                    </h3>
+                    <div class="md-frame">
+                        <iframe class="video-frame" width="80%" height="300" src="//www.youtube.com/embed/jway31DMZp0?rel=0" frameborder="0" allowfullscreen></iframe>
+					<p class="credits">Credits: <i>Gemeinsam gegen ACTA</i>, <a href="http://www.digitalegesellschaft.de">Digitale Gesellschaft</a></p>
+                    </div>
+				</div>
+			</div>
+		</div>
+        
+<!------- Animation Satellite ------->
+        <div class="md-modal md-effect-19" id="modal-17">
+			<div class="md-content">
+				<div>
+                    <div class="md-close"><i class="fui-cross"></i></div>
+                    <div class="md-frame">
+                    <iframe class="video-frame" width="80%" height="300" src="//www.youtube.com/embed/zk426Kmby7U?rel=0" frameborder="0" allowfullscreen></iframe>
+					<p class="credits">Credits: <i>BeforeTheSatelliteDetectsYou</i>, <a href="http://www.and-or.ch/beforethesatellite/">and-or.ch</a> (Website)</p>
+                    </div>
+                    <h3 class="quote">
+                    »Durch [...] Kunst-Spiele werden 'Real Player' des Alltags zwischen Netz, Smart Phone und Stadt sich allmählich darüber bewusst, dass nur das souveräne Spiel mit den Mechaniken staatstragender Spielsysteme die Praxis internationalen Datenhandels verändern wird.«
+                    </h3>
+				</div>
+			</div>
+		</div>
+    
+<!------- Animation PacManhattan ------->        
+        <div class="md-modal md-effect-19" id="modal-16">
+			<div class="md-content">
+				<div>
+                    <div class="md-close"><i class="fui-cross"></i></div>
+                    <div class="md-frame">
+                        <iframe class="video-frame" width="80%" height="300" src="//www.youtube.com/embed/DRLegNSB0Pw?rel=0" frameborder="0" allowfullscreen></iframe>
+                        <p class="credits">Credits: <i>arte - Pac Manhattan</i>, <a href="http://www.pacmanhattan.com/">Homepage</a></p>
+                    </div>
+                    <h3 class="quote">
+                    »Räume werden wahrgenommen, erkannt und gelebt. Diese Welterfindung wird in der Mechanik zeitgenössicher Urbaner Kunst-Spiele vorexerziert.«
+                    </h3>
+				</div>
+			</div>
+		</div>
+
+        
+        <div class="md-modal md-effect-19" id="modal-15">
+			<div class="md-content">
+				<div>
+                    <div class="md-close"><i class="fui-cross"></i></div>
+                    <div class="md-frame">
+                        <iframe class="video-frame" width="80%" height="300" src="//www.youtube.com/embed/KNwqJTJAQMw?rel=0" frameborder="0" allowfullscreen></iframe>
+					<p class="credits">Credits: <i>Big Brother is watching you!</i>, <a href="http://www.zdf.de/ZDFmediathek/beitrag/video/1920178/NSA-Big-Brother-is-watching-you%2521-">ZDFmediathek</a></p>
+                    </div>
+                    <h3 class="quote">
+                    »Mit der digitalen Surveillance-(Un-)Kultur als Praxis des Alltäglichen, als Grundlage des sozialen Netzwerks und der Selbstkonstruktion erleben wir eine ähnlich schleichende Verschiebung in eine Big Data Welt.«
+                    </h3>
+					
+				</div>
+			</div>
+		</div>
+    
+<!------- Animation Zombie ------->            
+        <div class="md-modal md-effect-19" id="modal-14">
+			<div class="md-content">
+				<div>
+                    <div class="md-close"><i class="fui-cross"></i></div>
+                    <div class="md-frame">
+                    <iframe class="video-frame" width="80%" height="300" src="//www.youtube.com/embed/xlRgBvYFxTo?rel=0" frameborder="0" allowfullscreen></iframe>
+					<p class="credits">Credits: <i>Zombies, Run!</i>, <a href="https://www.zombiesrungame.com/">Six To Start</a> (Website)</p>
+                    </div>
+                    <h3 class="quote">
+                    »Heute expandieren Games nachhaltig in Spielshows, Reality Games, Schnitzeljagden in der Stadt, vor allem aber durch die alltägliche Übetragung ihrer Game Rhetorik (Gamification) in verschiedene Realitäten des von relationaler Datenanalyse und Überwachung geprägten technoiden Lebens.«
+                    </h3>
+
+				</div>
+			</div>
+		</div>
+        
+<!------- Animation Google Glass ------->    
+        <div class="md-modal md-effect-19" id="modal-13">
+			<div class="md-content">
+				<div>
+                    <div class="md-close"><i class="fui-cross"></i></div>
+                    <div class="md-frame">
+                        <iframe class="video-frame" width="80%" height="300" src="//www.youtube.com/embed/v1uyQZNg2vE?rel=0" frameborder="0" allowfullscreen></iframe>
+                        <p class="credits">Credits: <i>GLASS</i>, <a href="http://www.google.com/glass/start/">Google</a> (Website)</p>
+                    </div>    
+                    <h3 class="quote">
+                    »Sicher geglaubte Realitäten beginnen sich mit der Alltäglichkeit des Digitalen zu verschieben. Mittel Alternate Realities wandern wir zunehmend zwischen den Welten, mäandern zwischen dem was aus erster, zweiter und dritter Welt einbricht.«
+                    </h3>
+
+				</div>
+			</div>
+		</div>
+    
+        
+
+
+        <div class="md-overlay"></div><!-- the overlay element -->
+
+        <script>
+        //                $('#dropZone').droppable({
+        //  drop: function() {
+        //    
+        //  }
+        //                 
+        //});
+            $('#Button1').draggable({containment: "parent" });    
+            $('#Button2').draggable({containment: "parent" });
+            $('#Button3').draggable({containment: "parent" });    
+            $('#Button4').draggable({containment: "parent" });
+            $('#Button5').draggable({containment: "parent" });    
+            $('#Button6').draggable({containment: "parent" });
+            $('#Button7').draggable({containment: "parent" });
+        </script>
+		<!-- classie.js by @desandro: https://github.com/desandro/classie -->
+		<script src="js/classie.js"></script>
+		<script src="js/modalEffects.js"></script>
+
+		<!-- for the blur effect -->
+		<!-- by @derSchepp https://github.com/Schepp/CSS-Filters-Polyfill -->
+		<script>
+			// this is important for IEs
+			var polyfilter_scriptpath = '/js/';
+		</script>
+		<script src="js/cssParser.js"></script>
+		<script src="js/css-filters-polyfill.js"></script>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script src="js/jquery.lettering.js"></script>
+
+<!--
+		<script>
+			$(document).ready(function() {
+				$("#os-phrases > h2").lettering('words').children("span").lettering().children("span").lettering(); 
+			})
+		</script>
+-->
+    </body>
+</html>
