@@ -111,6 +111,7 @@
 		.game_over {
 			position: absolute;
 			top: 50%; left: 50%;
+			margin-top: -25%; margin-left: -25%;
 			color: white;
 			display: none;
 		}
@@ -148,7 +149,6 @@
 		<div class="target_image"><img src="LUDICSPACE/Icons/Icons/IconSat.gif"></div>
 		<div class="target_image"><img src="LUDICSPACE/Icons/Icons/IconZombie.gif"></div>
 		<div class="game_over"><img src="LUDICSPACE/Icons/Icons/GameOverScreen.gif"></div>
-		<!-- embed id="icon_grab_sound" height='0px' width='0px' display='none' src='LUDICSPACE/audio/IconGrab.mp3' -->
 	</div>
 
 	<div class="viewer">
@@ -162,8 +162,12 @@
 	<script>
 		$(document).ready(function() {
 			
+			/*
+				Instantiates Buzz sounds for StartscreenSelect, IconGrab, and GameOver
+			*/
 			var start_screen_sound = new buzz.sound("LUDICSPACE/audio/StartscreenSelect.mp3"),
-				icon_grab_sound = new buzz.sound("LUDICSPACE/audio/IconGrab.mp3");
+				icon_grab_sound = new buzz.sound("LUDICSPACE/audio/IconGrab.mp3"),
+				game_over_sound = new buzz.sound("LUDICSPACE/audio/GameOver.mp3");
 
 			/* Sets Random starting positions for the images,
 			clustered near the center */
@@ -176,9 +180,13 @@
 				$(this).css('left', randomLeft+'%');
 			})
 
+			/*
+				Turns icons into draggables and plays IconGrab sound when dragging begins
+			*/
 			$(".target_image").draggable( { containment: "parent",
 				start: function(event, ui) {
-					icon_grab_sound.play(); }
+					icon_grab_sound.play();
+				}
 			});
 			
 
@@ -219,7 +227,7 @@
 
 				if (game_counter === 7) {
 					$(".game_over").show();
-					$(".field").html("<embed height='0px' width='0px' src='LUDICSPACE/audio/GameOver.mp3'>");
+					game_over_sound.play();
 				}
 			});
 		});
