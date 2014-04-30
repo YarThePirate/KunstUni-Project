@@ -18,10 +18,22 @@
 			z-index: 1;
 		}
 
-		.start_example {
-			border: 5px solid red;
-			color: red;
-			font-size: 36;
+		#ludic_start {
+			position: absolute;
+			height: 30%; width: 30%;
+			top: 15%; left: 30%;
+			border: 5px solid darkred;
+			color: darkred;
+			font-size: 36px;
+		}
+
+		#space_start {
+			position: absolute;
+			height: 30%; width: 30%;
+			top: 50%; left: 35%;
+			border: 5px solid darkred;
+			color: darkred;
+			font-size: 36px;
 		}
 
 		.field {
@@ -48,17 +60,17 @@
 		.gate {
 			height: 20px;
 			width: 50%;
-			position: absolute; left: 25%; top: -15px;
+			position: absolute;
 			background-color: black;
 			border-color: dotted 2px red;
 		}
 
 		.viewer_media {
 			height: 50%; width: 50%;
-			top: 60%; left: 60%;
-			border: dotted 2px red;
+			top: 40%; left: 40%;
 			position: absolute;
 			/* NOT IN FINAL PRODUCT: START */
+			border: dotted 2px red;
 			text-align: center;
 			color: red;
 			/* NOT IN FINAL PRODUCT: END */
@@ -66,12 +78,12 @@
 
 		.viewer_text {
 			height: 50%; width: 50%;
-			top: 20%; left: 20%;
-			border: dotted 2px blue;
+			top: 10%; left: 10%;
 			position: absolute;
 			/* NOT IN FINAL PRODUCT: START */
+			border: dotted 2px blue;
 			text-align: center;
-			color: red;
+			color: blue;
 			/* NOT IN FINAL PRODUCT: END */
 		}
 
@@ -111,14 +123,14 @@
 		.game_over {
 			position: absolute;
 			top: 50%; left: 50%;
-			margin-top: -25%; margin-left: -25%;
+			margin: -176px 0 0 -235px;
 			color: white;
 			display: none;
 		}
 	</style>
 
 	<!--
-		URLS for jquery, jquery UI, and JQuery ScrollTo pluging (local)
+		URLS for jquery, jquery UI, and JQuery ScrollTo plugins
 	-->
 	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 	<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
@@ -131,8 +143,8 @@
 <body>
 
 	<div id="start_screen">
-		<div class="start_example">Ludic</div>
-		<div class="start_example">Space</div>
+		<div id="ludic_start">Ludic</div>
+		<div id="space_start">Space</div>
 	</div>
 
 	<!--	DELETE BELOW IN FINAL?	-->
@@ -140,7 +152,7 @@
 	<!--	DELETE ABOVE IN FINAL?	-->
 
 	<div class="field">
-		<div class="gate"></div>
+		<div class="gate" style="left:25%;top:-15px"></div>
 		<div class="target_image"><img src="LUDICSPACE/Icons/Icons/IconAnon.gif"></div>
 		<div class="target_image"><img src="LUDICSPACE/Icons/Icons/IconCam.gif"></div>
 		<div class="target_image"><img src="LUDICSPACE/Icons/Icons/IconGlass.gif"></div>
@@ -152,9 +164,10 @@
 	</div>
 
 	<div class="viewer">
-		<div class="viewer_text"></div>
-		<div class="viewer_media">Insert Link To Media Here</div>
-		<button>Click here to return to the first screen</button>
+		<div class="viewer_text">Text Element Goes Here</div>
+		<div class="viewer_media">Media Element Goes Here</div>
+		<button></button>
+		<div class="gate" style="left:25%;bottom:-15px"></div>
 	</div>
 
 	<!-- Begin Script -->
