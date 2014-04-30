@@ -148,7 +148,7 @@
 		<div class="target_image"><img src="LUDICSPACE/Icons/Icons/IconSat.gif"></div>
 		<div class="target_image"><img src="LUDICSPACE/Icons/Icons/IconZombie.gif"></div>
 		<div class="game_over"><img src="LUDICSPACE/Icons/Icons/GameOverScreen.gif"></div>
-		<embed id="icon_grab_sound" height='0px' width='0px' display='none' src='LUDICSPACE/audio/IconGrab.mp3'>
+		<!-- embed id="icon_grab_sound" height='0px' width='0px' display='none' src='LUDICSPACE/audio/IconGrab.mp3' -->
 	</div>
 
 	<div class="viewer">
@@ -161,6 +161,10 @@
 	
 	<script>
 		$(document).ready(function() {
+			
+			var start_screen_sound = new buzz.sound("LUDICSPACE/audio/StartscreenSelect.mp3"),
+				icon_grab_sound = new buzz.sound("LUDICSPACE/audio/IconGrab.mp3");
+
 			/* Sets Random starting positions for the images,
 			clustered near the center */
 			var game_counter = 0;
@@ -174,9 +178,7 @@
 
 			$(".target_image").draggable( { containment: "parent",
 				start: function(event, ui) {
-					$("#icon_grab_sound").show(); },
-				stop: function(event, ui) {
-					$("#icon_grab_sound").hide(); }
+					icon_grab_sound.play(); }
 			});
 			
 
@@ -201,7 +203,8 @@
 				and play a sound effect
 			*/
 			$("#start_screen").click(function() {
-				$("#start_screen").html("<embed height='0px' width='0px' src='LUDICSPACE/audio/StartscreenSelect.mp3'>");
+				//$("#start_screen").html("<embed height='0px' width='0px' src='LUDICSPACE/audio/StartscreenSelect.mp3'>");
+				start_screen_sound.play();
 				$("#start_screen").fadeOut();
 			});
 
