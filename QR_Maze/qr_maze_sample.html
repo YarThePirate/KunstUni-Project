@@ -36,15 +36,22 @@
 		}
 
 		#arrowTable td {
+			position: relative;
 			height: 200px; width: 200px;
 			padding: 0;
 			margin: 0;
+			/*
 			border: dotted 2px red;
+			*/
 		}
 
 		#arrowTable td img {
-			margin-left: 0;
+			position: absolute;
+			top: 50%; left: 50%;
+			margin: -30px 0 0 -30px;
+			/*
 			border: dotted 1px green;
+			*/
 		}
 
 		.tableCell {
@@ -125,6 +132,7 @@
 	<script src="../Scripts/jquery.js"></script>
 	<script src="../Scripts/jquery-ui-1.10.4.min.js"></script>
 	<!--script src="../Scripts/jquery-mobile-1.4.2.min.js"></script <== BAD COPY: GET NEW LOCAL COPY OF MOBILE LIBRARY -->
+	<script scr="../Scripts/jquery-scrollTo.min.js"></script>
 
 </head>
 
