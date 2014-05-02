@@ -53,9 +53,9 @@
 			height: 200px; width: 200px;
 			padding: 0;
 			margin: 0;
-			/*
+			
 			border: dotted 2px red;
-			*/
+			
 		}
 
 		#arrowTable td img {
@@ -63,9 +63,9 @@
 			top: 50%; left: 50%;
 			margin: -30px 0 0 -30px;
 			z-index: 0;
-			/*
+			
 			border: dotted 1px green;
-			*/
+			
 		}
 
 		.tableCell {
@@ -190,6 +190,7 @@
 			*/
 			$(".start_screen").click(function() {
 				$(this).fadeOut();
+			});
 			
 			/*
 				Creates 10 empty rows with unique ids
@@ -197,7 +198,6 @@
 			for (var x = 0; x < 10; x++) {
 				$("#overlay").append("<tr id=\"row" + x + "\"></tr>");
 			};
-			
 			/*
 				Creates 10 cells in each row.
 				Use row ID and cell value to
@@ -219,9 +219,7 @@
 				/* ^ Idea: instead of adding something to the existing table, what if you put the random cells into
 					an array of cell objects? */
 				$($randomCell).html("Cell #"+i+"; ["+randomRow+", "+randomCol+"]");
-			}
-
-			});
+			};
 
 			$(".dark").click(function() {
 				$(this).fadeOut();
