@@ -66,7 +66,7 @@
 			border-color: dotted 2px red;
 		}
 
-		.viewer_media {
+		.viewer_media_area {
 			height: 50%; width: 50%;
 			top: 40%; left: 40%;
 			position: absolute;
@@ -77,7 +77,7 @@
 			/* NOT IN FINAL PRODUCT: END */
 		}
 
-		.viewer_text {
+		.viewer_text_area {
 			height: 50%; width: 50%;
 			top: 10%; left: 10%;
 			position: absolute;
@@ -86,6 +86,15 @@
 			text-align: center;
 			color: blue;
 			/* NOT IN FINAL PRODUCT: END */
+		}
+
+		.viewer_text {
+			display: none;
+		}
+
+		.youtube-player {
+			display: none;
+			height: 100%; width: 100%;
 		}
 
 		button {
@@ -164,19 +173,42 @@
 
 	<div class="field">
 		<div class="gate" style="left:25%;top:-15px"></div>
-		<div class="target_image"><img src="LUDICSPACE/Icons/Icons/IconAnon.gif"></div>
-		<div class="target_image"><img src="LUDICSPACE/Icons/Icons/IconCam.gif"></div>
-		<div class="target_image"><img src="LUDICSPACE/Icons/Icons/IconGlass.gif"></div>
-		<div class="target_image"><img src="LUDICSPACE/Icons/Icons/IconPacman.gif"></div>
-		<div class="target_image"><img src="LUDICSPACE/Icons/Icons/IconParcour.gif"></div>
-		<div class="target_image"><img src="LUDICSPACE/Icons/Icons/IconSat.gif"></div>
-		<div class="target_image"><img src="LUDICSPACE/Icons/Icons/IconZombie.gif"></div>
+		<div class="target_image" id="anon"><img src="LUDICSPACE/Icons/Icons/IconAnon.gif"></div>
+		<div class="target_image" id="cam"><img src="LUDICSPACE/Icons/Icons/IconCam.gif"></div>
+		<div class="target_image" id="glass"><img src="LUDICSPACE/Icons/Icons/IconGlass.gif"></div>
+		<div class="target_image" id="pacman"><img src="LUDICSPACE/Icons/Icons/IconPacman.gif"></div>
+		<div class="target_image" id="parcour"><img src="LUDICSPACE/Icons/Icons/IconParcour.gif"></div>
+		<div class="target_image" id="sat"><img src="LUDICSPACE/Icons/Icons/IconSat.gif"></div>
+		<div class="target_image" id="zombie"><img src="LUDICSPACE/Icons/Icons/IconZombie.gif"></div>
 		<div class="game_over"><img src="LUDICSPACE/Icons/Icons/GameOverScreen.gif"></div>
 	</div>
 
 	<div class="viewer">
-		<div class="viewer_text">Text Element Goes Here</div>
-		<div class="viewer_media">Media Element Goes Here</div>
+		<div class="viewer_text_area">
+			<div class="viewer_text" id="anon_text_de">Mit Hilfe von kommerziellen elektronischen sozialen Netzwerken platzten 2013 auch die von der Europäischen Union projektierten "Acta Gesetze", erstmals wegen erfolgreichen öffentlichen Protesten der Netzbewegung. Organisiert waren diese wiese ein Urban Game, mit Mobile Phones und Google Maps.</div>
+			<div class="viewer_text" id="anon_text_en">With the aid of commercial electronic social networks, in 2013 the “ACTA laws” planned by the European Union fell through, firstly because of the successful public protests of the net movement. These were organised like an urban game, using mobile phones and Google Maps.</div>
+			<div class="viewer_text" id="cam_text_de">Mit der digitalen Surveillance-(Un-)Kultur als Praxis des Alltäglichen, als Grundlage des sozialen Netzwerks und der Selbstkonstruktion erleben wir eine ähnlich schleichende Verschiebung in eine Big Data Welt.</div>
+			<div class="viewer_text" id="cam_text_en">With the digital surveillance (un)culture as the everyday practice, as the basis of the social network and of self-construction, we are experiencing a similar creeping shift into a big-data world.</div>
+			<div class="viewer_text" id="glass_text_de">Sicher geglaubte Realitäten beginnen sich mit der Alltäglichkeit des Digitalen zu verschieben. Mittel Alternate Realities wandern wir zunehmend zwischen den Welten, mäandern zwischen dem was aus erster, zweiter und dritter Welt einbricht.</div>
+			<div class="viewer_text" id="glass_text_en">With the digital becoming an everyday matter, realities that had been regarded as certain are beginning to shift. Using alternate realities we increasingly wander between the worlds, meander between what breaks in from the first, second and third world.</div>
+			<div class="viewer_text" id="pacman_text_de">Räume werden wahrgenommen, erkannt und gelebt. Diese Welterfindung wird in der Mechanik zeitgenössicher Urbaner Kunst-Spiele vorexerziert.</div>
+			<div class="viewer_text" id="pacman_text_en">Spaces are perceived, recognised and lived. This invention of a world is demonstrated in the mechanics of contemporary urban art games.</div>
+			<div class="viewer_text" id="parcour_text_de">In Urban Games streichen die Spieler durch die Städte, nehmen ihre Topografie im Parcour und manifestieren sich im physischen Dialog mit Sprachen der Gamer und politischer Aktivisten.</div>
+			<div class="viewer_text" id="parcour_text_en">In urban games, the players prowl through the cities, take their topography in the parcour and manifest themselves in physical dialogues in the language of gamers and political activists.</div>
+			<div class="viewer_text" id="sat_text_de">Durch [...] Kunst-Spiele werden 'Real Player' des Alltags zwischen Netz, Smart Phone und Stadt sich allmählich darüber bewusst, dass nur das souveräne Spiel mit den Mechaniken staatstragender Spielsysteme die Praxis internationalen Datenhandels verändern wird.</div>
+			<div class="viewer_text" id="sat_text_en">Through [...] “real players” of everyday life between the net, smartphone and the city gradually become aware that only the sovereign game with the mechanics of state game systems will change the practice of international data transfer.</div>
+			<div class="viewer_text" id="zombie_text_de">Heute expandieren Games nachhaltig in Spielshows, Reality Games, Schnitzeljagden in der Stadt, vor allem aber durch die alltägliche Übetragung ihrer Game Rhetorik (Gamification) in verschiedene Realitäten des von relationaler Datenanalyse und Überwachung geprägten technoiden Lebens.</div>
+			<div class="viewer_text" id="zombie_text_en">Today games are continuously expanding, in game shows, reality games, paperchases through the city, but above all through the everyday transmission of their game rhetoric (gamification) in various realities of technoid life influenced by relational data analysis and surveillance.</div>
+		</div>
+		<div class="viewer_media_area">
+			<iframe class="youtube-player" id="anon_media" src="http://www.youtube.com/embed/jway31DMZp0"></iframe>
+			<iframe class="youtube-player" id="cam_media" src="http://www.youtube.com/embed/KNwqJTJAQMw"></iframe>
+			<iframe class="youtube-player" id="glass_media" src="http://www.youtube.com/embed/v1uyQZNg2vE"></iframe>
+			<iframe class="youtube-player" id="pacman_media" src="http://www.youtube.com/embed/DRLegNSB0Pw"></iframe>
+			<iframe class="youtube-player" id="parcour_media" src="http://www.youtube.com/embed/67qqEcGDC0s"></iframe>
+			<iframe class="youtube-player" id="sat_media" src="http://www.youtube.com/embed/zk426Kmby7U"></iframe>
+			<iframe class="youtube-player" id="zombie_media" src="http://www.youtube.com/embed/xlRgBvYFxTo"></iframe>
+		</div>
 		<button></button>
 		<div class="gate" style="left:25%;bottom:-15px"></div>
 	</div>
@@ -192,7 +224,6 @@
 			var start_screen_sound = new buzz.sound("LUDICSPACE/audio/StartscreenSelect.mp3"),
 				icon_grab_sound = new buzz.sound("LUDICSPACE/audio/IconGrab.mp3"),
 				game_over_sound = new buzz.sound("LUDICSPACE/audio/GameOver.mp3");
-
 			/* Sets Random starting positions for the images,
 			clustered near the center */
 			var game_counter = 0;
@@ -224,6 +255,9 @@
 					$(".viewer").delay(50).toggle("slide", {direction: "up", easing: "linear"});
 					$(".field").toggle("slide", {direction: "down", easing: "linear"});
 					$("button").html($(ui.draggable).html());
+
+					$("#anon_text_de").show();
+					$("#anon_media").show();
 					$(ui.draggable).fadeOut(500);
 					game_counter++;
 				},
@@ -235,7 +269,6 @@
 				and play a sound effect
 			*/
 			$("#start_screen").click(function() {
-				//$("#start_screen").html("<embed height='0px' width='0px' src='LUDICSPACE/audio/StartscreenSelect.mp3'>");
 				start_screen_sound.play();
 				$("#start_screen").fadeOut();
 			});
