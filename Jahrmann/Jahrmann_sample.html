@@ -227,6 +227,7 @@
 			/* Sets Random starting positions for the images,
 			clustered near the center */
 			var game_counter = 0;
+			var image_id = "";
 
 			$('.target_image').each(function() {
 				var randomTop = 25 + Math.floor(Math.random() * 50);
@@ -255,11 +256,12 @@
 					$(".viewer").delay(50).toggle("slide", {direction: "up", easing: "linear"});
 					$(".field").toggle("slide", {direction: "down", easing: "linear"});
 					$("button").html($(ui.draggable).html());
-
-					$("#anon_text_de").show();
-					$("#anon_media").show();
-					$(ui.draggable).fadeOut(500);
 					game_counter++;
+					alert(image_id);
+					image_id = ui.draggable.attr("id");
+					alert("\"#" + image_id + "_text_de\"");
+					$(ui.draggable).fadeOut(500);
+					$("\"#" + image_id + "_text_de\"").show();
 				},
 				tolerance: "touch"
 			});
