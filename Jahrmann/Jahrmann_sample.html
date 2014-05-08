@@ -95,7 +95,7 @@
 		}
 
 		.youtube-player {
-			display: none;
+			/*display: none;*/
 			height: 100%; width: 100%;
 		}
 
@@ -203,13 +203,13 @@
 			<div class="viewer_text" id="zombie_text_en">Today games are continuously expanding, in game shows, reality games, paperchases through the city, but above all through the everyday transmission of their game rhetoric (gamification) in various realities of technoid life influenced by relational data analysis and surveillance.</div>
 		</div>
 		<div class="viewer_media_area">
-			<iframe class="youtube-player" id="anon_media" src="http://www.youtube.com/embed/jway31DMZp0"></iframe>
+			<!-- iframe class="youtube-player" id="anon_media" src="http://www.youtube.com/embed/jway31DMZp0"></iframe>
 			<iframe class="youtube-player" id="cam_media" src="http://www.youtube.com/embed/KNwqJTJAQMw"></iframe>
 			<iframe class="youtube-player" id="glass_media" src="http://www.youtube.com/embed/v1uyQZNg2vE"></iframe>
 			<iframe class="youtube-player" id="pacman_media" src="http://www.youtube.com/embed/DRLegNSB0Pw"></iframe>
 			<iframe class="youtube-player" id="parcour_media" src="http://www.youtube.com/embed/67qqEcGDC0s"></iframe>
 			<iframe class="youtube-player" id="sat_media" src="http://www.youtube.com/embed/zk426Kmby7U"></iframe>
-			<iframe class="youtube-player" id="zombie_media" src="http://www.youtube.com/embed/xlRgBvYFxTo"></iframe>
+			<iframe class="youtube-player" id="zombie_media" src="http://www.youtube.com/embed/xlRgBvYFxTo"></iframe -->
 		</div>
 		<button></button>
 		<div class="gate" style="left:25%;bottom:-15px"></div>
@@ -327,7 +327,9 @@
 		}
 
 		function generateMedia( imageID ) {
-			alert( "<iframe class=\"youtube-player\" id=\"" + imageID + "_media\" src=\"http://www.youtube.com/embed/" + youtube_id_hash[imageID] + "\"></iframe>" );
+			$(".viewer_media_area").html("<iframe class=\"youtube-player\" id=\"" + imageID + "_media\" src=\"http://www.youtube.com/embed/" + youtube_id_hash[imageID] + "\"></iframe>")
+
+			//alert( "<iframe class=\"youtube-player\" id=\"" + imageID + "_media\" src=\"http://www.youtube.com/embed/" + youtube_id_hash[imageID] + "\"></iframe>" );
 		}
 
 		/*
