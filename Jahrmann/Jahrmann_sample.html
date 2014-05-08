@@ -70,28 +70,42 @@
 			height: 50%; width: 50%;
 			top: 40%; left: 40%;
 			position: absolute;
-			background-color: red;
-			/* NOT IN FINAL PRODUCT: START */
-			border: dotted 2px red;
-			text-align: center;
-			color: black;
-			/* NOT IN FINAL PRODUCT: END */
+			background-color: blue;
 		}
 
 		.viewer_text_area {
 			height: 50%; width: 50%;
 			top: 10%; left: 10%;
 			position: absolute;
-			background-color: blue;
-			color: black;
+			background-color: red;
+			/*color: black;*/
 			text-align: left;
-			/* NOT IN FINAL PRODUCT: START */
-			border: dotted 2px blue;
-			/* NOT IN FINAL PRODUCT: END */
+			font: 'Circular Std';
+			font-weight: medium;
+			font-size: 18pt;
+			line-spacing: 32pt;
+			color: #fff;
 		}
 
 		.viewer_text {
 			display: none;
+		}
+
+		.signature {
+			Abstand zum Text darüber: 20px;
+			font-size: 14pt;
+			font-weight: medium;
+			font-style: italic;
+			color: #fff;
+			bottom: 0;
+		}
+
+		.credits {
+			font-weight: bold; 
+			Text allgemein:
+			font-size: 11pt;
+			font-weight: medium;
+			link-color: red;
 		}
 
 		.youtube-player {
@@ -164,8 +178,7 @@
 <body>
 
 	<div id="start_screen">
-		<div id="ludic_start">Ludic</div>
-		<div id="space_start">Space</div>
+		<div id="ludic_start"><img src="LUDICSPACE/Icons/Icons/LUDICSPACE_title_cropped.png"></div>
 	</div>
 
 	<!--	DELETE BELOW IN FINAL?	-->
@@ -200,6 +213,7 @@
 			<div class="viewer_text" id="sat_text_en">Through [...] “real players” of everyday life between the net, smartphone and the city gradually become aware that only the sovereign game with the mechanics of state game systems will change the practice of international data transfer.</div>
 			<div class="viewer_text" id="zombie_text_de">Heute expandieren Games nachhaltig in Spielshows, Reality Games, Schnitzeljagden in der Stadt, vor allem aber durch die alltägliche Übetragung ihrer Game Rhetorik (Gamification) in verschiedene Realitäten des von relationaler Datenanalyse und Überwachung geprägten technoiden Lebens.</div>
 			<div class="viewer_text" id="zombie_text_en">Today games are continuously expanding, in game shows, reality games, paperchases through the city, but above all through the everyday transmission of their game rhetoric (gamification) in various realities of technoid life influenced by relational data analysis and surveillance.</div>
+			<div class="signature">Margarete Jahrmann</div>
 		</div>
 		<div class="viewer_media_area">
 			<!-- YouTube embedding handled by JavaScript function (generateMedia()) -->
@@ -330,7 +344,7 @@
 			Dynamically embeds YouTube videos based on the draggable image dropped
 		*/
 		function generateMedia( imageID ) {
-			$(".viewer_media_area").html("<iframe class=\"youtube-player\" id=\"" + imageID + "_media\" src=\"http://www.youtube.com/embed/" + youtube_id_hash[imageID] + "\"></iframe>")
+			$(".viewer_media_area").html("<iframe class=\"youtube-player\" id=\"" + imageID + "_media\" src=\"http://www.youtube.com/embed/" + youtube_id_hash[imageID] + "\"></iframe>");
 		}
 
 		/*
