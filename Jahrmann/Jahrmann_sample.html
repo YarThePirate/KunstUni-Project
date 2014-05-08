@@ -263,11 +263,12 @@
 						This is where I attempt to make the correct text and youtube video visible
 					*/
 					image_id = ui.draggable.attr("id");
-					var image_id_passable = "\"#" + image_id + "_text_de\"";
+					//var image_id_passable = "#" + image_id + "_text_de";
 					
 					$(ui.draggable).fadeOut(500);
 
-					$(image_id_passable).show();
+					$("#" + image_id + "_text_de").show();
+					$("#" + image_id + "_media").show();
 				},
 				tolerance: "touch"
 			});
