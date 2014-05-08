@@ -257,11 +257,17 @@
 					$(".field").toggle("slide", {direction: "down", easing: "linear"});
 					$("button").html($(ui.draggable).html());
 					game_counter++;
-					alert(image_id);
+					
+					/*
+						!!!!!!!!!!!!!!!!!!!!!!!!
+						This is where I attempt to make the correct text and youtube video visible
+					*/
 					image_id = ui.draggable.attr("id");
-					alert("\"#" + image_id + "_text_de\"");
+					var image_id_passable = "\"#" + image_id + "_text_de\"";
+					
 					$(ui.draggable).fadeOut(500);
-					$("\"#" + image_id + "_text_de\"").show();
+
+					$(image_id_passable).show();
 				},
 				tolerance: "touch"
 			});
