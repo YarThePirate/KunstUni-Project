@@ -95,7 +95,6 @@
 		}
 
 		.youtube-player {
-			/*display: none;*/
 			height: 100%; width: 100%;
 		}
 
@@ -203,13 +202,7 @@
 			<div class="viewer_text" id="zombie_text_en">Today games are continuously expanding, in game shows, reality games, paperchases through the city, but above all through the everyday transmission of their game rhetoric (gamification) in various realities of technoid life influenced by relational data analysis and surveillance.</div>
 		</div>
 		<div class="viewer_media_area">
-			<!-- iframe class="youtube-player" id="anon_media" src="http://www.youtube.com/embed/jway31DMZp0"></iframe>
-			<iframe class="youtube-player" id="cam_media" src="http://www.youtube.com/embed/KNwqJTJAQMw"></iframe>
-			<iframe class="youtube-player" id="glass_media" src="http://www.youtube.com/embed/v1uyQZNg2vE"></iframe>
-			<iframe class="youtube-player" id="pacman_media" src="http://www.youtube.com/embed/DRLegNSB0Pw"></iframe>
-			<iframe class="youtube-player" id="parcour_media" src="http://www.youtube.com/embed/67qqEcGDC0s"></iframe>
-			<iframe class="youtube-player" id="sat_media" src="http://www.youtube.com/embed/zk426Kmby7U"></iframe>
-			<iframe class="youtube-player" id="zombie_media" src="http://www.youtube.com/embed/xlRgBvYFxTo"></iframe -->
+			<!-- YouTube embedding handled by JavaScript function (generateMedia()) -->
 		</div>
 		<button></button>
 		<div class="gate" style="left:25%;bottom:-15px"></div>
@@ -219,6 +212,7 @@
 	
 	<script>
 		
+		// Hash holding the unique YouTube video IDs to be used in generateMedia function
 		var youtube_id_hash = {"anon": "jway31DMZp0", 
 			"cam": "KNwqJTJAQMw",
 			"glass": "v1uyQZNg2vE",
@@ -227,17 +221,21 @@
 			"sat": "zk426Kmby7U",
 			"zombie": "xlRgBvYFxTo"}
 
-		var game_counter = 0; // keeps track of how many images have been used
-		var image_id = ""; // holds the unique ID of draggable dropped; used to generate correct media and text
+		/*
+			- game_counter keeps track of how many images have been dropped
+			- image_id holds the unique ID of the image dropped; used to display correct media and text
+		*/
+		var game_counter = 0;
+		var image_id = "";
+
+		/*
+			Instantiates Buzz sounds for StartscreenSelect, IconGrab, and GameOver
+		*/
+		var start_screen_sound = new buzz.sound("LUDICSPACE/audio/StartscreenSelect.mp3"),
+			icon_grab_sound = new buzz.sound("LUDICSPACE/audio/IconGrab.mp3"),
+			game_over_sound = new buzz.sound("LUDICSPACE/audio/GameOver.mp3");
 
 		$(document).ready(function() {
-			
-			/*
-				Instantiates Buzz sounds for StartscreenSelect, IconGrab, and GameOver
-			*/
-			var start_screen_sound = new buzz.sound("LUDICSPACE/audio/StartscreenSelect.mp3"),
-				icon_grab_sound = new buzz.sound("LUDICSPACE/audio/IconGrab.mp3"),
-				game_over_sound = new buzz.sound("LUDICSPACE/audio/GameOver.mp3");
 
 			$('.target_image').each(function() {
 				randomizePosition( $(this) );
@@ -317,19 +315,22 @@
 		}
 
 		/*
+			- Immediately removes embedded video to increase responsiveness
 			- Slides toggles verticle slides for field and viewer.
 			- Includes a delay for field to create the illusion of
 				physical space.
 		*/
 		function switchToField() {
+			$(".viewer_media_area").html("");
 			$(".viewer").toggle("slide", {direction: "up", easing: "linear"});
 			$(".field").delay(50).toggle("slide", {direction: "down", easing: "linear"});
 		}
 
+		/*
+			Dynamically embeds YouTube videos based on the draggable image dropped
+		*/
 		function generateMedia( imageID ) {
 			$(".viewer_media_area").html("<iframe class=\"youtube-player\" id=\"" + imageID + "_media\" src=\"http://www.youtube.com/embed/" + youtube_id_hash[imageID] + "\"></iframe>")
-
-			//alert( "<iframe class=\"youtube-player\" id=\"" + imageID + "_media\" src=\"http://www.youtube.com/embed/" + youtube_id_hash[imageID] + "\"></iframe>" );
 		}
 
 		/*
