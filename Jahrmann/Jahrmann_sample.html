@@ -218,6 +218,18 @@
 	<!-- Begin Script -->
 	
 	<script>
+		
+		var youtube_id_hash = {"anon": "jway31DMZp0", 
+			"cam": "KNwqJTJAQMw",
+			"glass": "v1uyQZNg2vE",
+			"pacman": "DRLegNSB0Pw",
+			"parcour": "67qqEcGDC0s",
+			"sat": "zk426Kmby7U",
+			"zombie": "xlRgBvYFxTo"}
+
+		//var game_counter = 0;
+		//var image_id = "";
+
 		$(document).ready(function() {
 			
 			/*
@@ -226,11 +238,12 @@
 			var start_screen_sound = new buzz.sound("LUDICSPACE/audio/StartscreenSelect.mp3"),
 				icon_grab_sound = new buzz.sound("LUDICSPACE/audio/IconGrab.mp3"),
 				game_over_sound = new buzz.sound("LUDICSPACE/audio/GameOver.mp3");
-			/* Sets Random starting positions for the images,
-			clustered near the center */
+			
 			var game_counter = 0;
 			var image_id = "";
 
+			/* Sets Random starting positions for the images,
+			clustered near the center */
 			$('.target_image').each(function() {
 				var randomTop = 25 + Math.floor(Math.random() * 50);
 				var randomLeft = 25 + Math.floor(Math.random() * 50);
@@ -261,6 +274,7 @@
 					
 					switchToViewer();
 					toggleMedia( image_id );
+					generateMedia( image_id );
 					game_counter++;
 				},
 				tolerance: "touch"
@@ -317,6 +331,10 @@
 		function switchToField() {
 			$(".viewer").toggle("slide", {direction: "up", easing: "linear"});
 			$(".field").delay(50).toggle("slide", {direction: "down", easing: "linear"});
+		}
+
+		function generateMedia( imageID ) {
+			alert( "Key: " + imageID + "\nValue: " + youtube_id_hash[imageID]);
 		}
 	</script>
 
