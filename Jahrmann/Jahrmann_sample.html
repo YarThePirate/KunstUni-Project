@@ -227,8 +227,8 @@
 			"sat": "zk426Kmby7U",
 			"zombie": "xlRgBvYFxTo"}
 
-		//var game_counter = 0;
-		//var image_id = "";
+		var game_counter = 0; // keeps track of how many images have been used
+		var image_id = ""; // holds the unique ID of draggable dropped; used to generate correct media and text
 
 		$(document).ready(function() {
 			
@@ -239,11 +239,9 @@
 				icon_grab_sound = new buzz.sound("LUDICSPACE/audio/IconGrab.mp3"),
 				game_over_sound = new buzz.sound("LUDICSPACE/audio/GameOver.mp3");
 			
-			var game_counter = 0;
-			var image_id = "";
+			//var game_counter = 0;
+			//var image_id = "";
 
-			/* Sets Random starting positions for the images,
-			clustered near the center */
 			$('.target_image').each(function() {
 				randomizePosition( $(this) );
 			})
@@ -334,11 +332,15 @@
 			alert( "Key: " + imageID + "\nValue: " + youtube_id_hash[imageID]);
 		}
 
-		function randomizePosition( item ) {
+		/*
+			Sets Random starting positions for the images,
+			clustered near the center
+		*/
+		function randomizePosition( jqueryElement ) {
 			var randomTop = 25 + Math.floor(Math.random() * 50);
 			var randomLeft = 25 + Math.floor(Math.random() * 50);
-			item.css('top', randomTop+'%');
-			item.css('left', randomLeft+'%');
+			jqueryElement.css('top', randomTop+'%');
+			jqueryElement.css('left', randomLeft+'%');
 		}
 	</script>
 
