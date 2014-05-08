@@ -238,9 +238,6 @@
 			var start_screen_sound = new buzz.sound("LUDICSPACE/audio/StartscreenSelect.mp3"),
 				icon_grab_sound = new buzz.sound("LUDICSPACE/audio/IconGrab.mp3"),
 				game_over_sound = new buzz.sound("LUDICSPACE/audio/GameOver.mp3");
-			
-			//var game_counter = 0;
-			//var image_id = "";
 
 			$('.target_image').each(function() {
 				randomizePosition( $(this) );
@@ -270,7 +267,6 @@
 					switchToViewer();
 					toggleMedia( image_id );
 					generateMedia( image_id );
-					game_counter++;
 				},
 				tolerance: "touch"
 			});
@@ -293,7 +289,7 @@
 				switchToField();
 				toggleMedia( image_id );
 
-				if (game_counter === 7) {
+				if (game_counter >= 7) {
 					$(".game_over").show();
 					game_over_sound.play();
 				}
@@ -312,10 +308,12 @@
 			- Slides toggles verticle slides for field and viewer.
 			- Includes a delay for viewer to create the illusion of
 				physical space.
+			- Increments game_counter by 1
 		*/
 		function switchToViewer() {
 			$(".viewer").delay(50).toggle("slide", {direction: "up", easing: "linear"});
 			$(".field").toggle("slide", {direction: "down", easing: "linear"});
+			game_counter++;
 		}
 
 		/*
