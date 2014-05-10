@@ -197,16 +197,8 @@
 				$(this).fadeOut();
 				$(".qrcode").show();
 			});
-			
-			/*
-				Creates 10 empty rows with unique ids
-			*/
+						
 			generateTable();
-			
-			/*
-				Places links at X random spots on the
-				#overlay table
-			*/
 			placeLinks();
 
 			/*
@@ -217,13 +209,16 @@
 			$(".dark").click(function() {
 				$(this).fadeOut();
 				$("#arrowTable").fadeIn('slow').delay(250).fadeOut('slow');
-				getCellCoordinates(this);
+				scrollToCell(this);
 			});
 
 
 		});
 
-		function getCellCoordinates(cell) {
+		/*
+			Centers the clicked cell on the screen
+		*/
+		function scrollToCell(cell) {
 			var viewportWidth = $(window).width(),
 					viewportHeight = $(window).height(),
 					foo = $(cell),
@@ -233,9 +228,12 @@
 					topPosition = (elOffset.top + (elHeight/2) - (viewportHeight/2)),
 					leftPosition = (elOffset.left + (elWidth/2) - (viewportWidth/2));
 
-				$.scrollTo({top:topPosition, left:leftPosition}, 800);
+			$.scrollTo({top:topPosition, left:leftPosition}, 800);
 		}
 
+		/*
+				Creates 10 empty rows with unique ids
+		*/
 		function generateTable() {
 			for (var x = 0; x < 10; x++) {
 				$("#overlay").append("<tr id=\"row" + x + "\"></tr>");
@@ -250,6 +248,10 @@
 			};
 		}
 
+		/*
+				Places links at X random spots on the
+				#overlay table
+		*/
 		function placeLinks() {
 			for (var i = 0; i < 9; i++) {
 				var randomRow = Math.floor(Math.random() * 10);
@@ -261,10 +263,24 @@
 				$($randomCell).html("Cell #"+i+"; ["+randomRow+", "+randomCol+"]");
 				if (i == 8) {
 					setTimeout(function() {
-						getCellCoordinates($randomCell);
+						scrollToCell($randomCell);
 					}, 2000);
 				};
 			};
+		}
+
+		/*
+			Makes sure that the cell is adjacent to the cell just clicked
+		*/
+		function validateCell() {
+
+		}
+
+		/*
+			If the cell is a valid cell, makes the cell visible
+		*/
+		function makeCellVisible() {
+
 		}
 	</script>
 
