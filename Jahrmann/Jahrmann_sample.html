@@ -28,6 +28,9 @@
 			font-size: 36px;
 		}
 
+		/*
+			NO LONGER USED: JUST MAKE THE PICTURE IN THE ABOVE SECTION LOOK LIKE IT SHOULD
+		*/
 		#space_start {
 			position: absolute;
 			height: 30%; width: 30%;
@@ -80,19 +83,22 @@
 			background-color: red;
 			/*color: black;*/
 			text-align: left;
+		}
+
+		.viewer_text {
+			display: none;
 			font: 'Circular Std';
+			font-family: sans-serif;
 			font-weight: medium;
 			font-size: 18pt;
 			line-spacing: 32pt;
 			color: #fff;
 		}
 
-		.viewer_text {
-			display: none;
-		}
-
 		.signature {
-			Abstand zum Text darüber: 20px;
+			position: absolute;
+			/*Abstand zum Text darüber: 20px;*/
+			font-family: sans-serif; /* <-- Is this necessary? */
 			font-size: 14pt;
 			font-weight: medium;
 			font-style: italic;
@@ -199,24 +205,24 @@
 
 	<div class="viewer">
 		<div class="viewer_text_area">
-			<div class="viewer_text" id="anon_text_de">Mit Hilfe von kommerziellen elektronischen sozialen Netzwerken platzten 2013 auch die von der Europäischen Union projektierten "Acta Gesetze", erstmals wegen erfolgreichen öffentlichen Protesten der Netzbewegung. Organisiert waren diese wiese ein Urban Game, mit Mobile Phones und Google Maps.</div>
-			<div class="viewer_text" id="anon_text_en">With the aid of commercial electronic social networks, in 2013 the “ACTA laws” planned by the European Union fell through, firstly because of the successful public protests of the net movement. These were organised like an urban game, using mobile phones and Google Maps.</div>
-			<div class="viewer_text" id="cam_text_de">Mit der digitalen Surveillance-(Un-)Kultur als Praxis des Alltäglichen, als Grundlage des sozialen Netzwerks und der Selbstkonstruktion erleben wir eine ähnlich schleichende Verschiebung in eine Big Data Welt.</div>
-			<div class="viewer_text" id="cam_text_en">With the digital surveillance (un)culture as the everyday practice, as the basis of the social network and of self-construction, we are experiencing a similar creeping shift into a big-data world.</div>
-			<div class="viewer_text" id="glass_text_de">Sicher geglaubte Realitäten beginnen sich mit der Alltäglichkeit des Digitalen zu verschieben. Mittel Alternate Realities wandern wir zunehmend zwischen den Welten, mäandern zwischen dem was aus erster, zweiter und dritter Welt einbricht.</div>
-			<div class="viewer_text" id="glass_text_en">With the digital becoming an everyday matter, realities that had been regarded as certain are beginning to shift. Using alternate realities we increasingly wander between the worlds, meander between what breaks in from the first, second and third world.</div>
-			<div class="viewer_text" id="pacman_text_de">Räume werden wahrgenommen, erkannt und gelebt. Diese Welterfindung wird in der Mechanik zeitgenössicher Urbaner Kunst-Spiele vorexerziert.</div>
-			<div class="viewer_text" id="pacman_text_en">Spaces are perceived, recognised and lived. This invention of a world is demonstrated in the mechanics of contemporary urban art games.</div>
-			<div class="viewer_text" id="parcour_text_de">In Urban Games streichen die Spieler durch die Städte, nehmen ihre Topografie im Parcour und manifestieren sich im physischen Dialog mit Sprachen der Gamer und politischer Aktivisten.</div>
-			<div class="viewer_text" id="parcour_text_en">In urban games, the players prowl through the cities, take their topography in the parcour and manifest themselves in physical dialogues in the language of gamers and political activists.</div>
-			<div class="viewer_text" id="sat_text_de">Durch [...] Kunst-Spiele werden 'Real Player' des Alltags zwischen Netz, Smart Phone und Stadt sich allmählich darüber bewusst, dass nur das souveräne Spiel mit den Mechaniken staatstragender Spielsysteme die Praxis internationalen Datenhandels verändern wird.</div>
-			<div class="viewer_text" id="sat_text_en">Through [...] “real players” of everyday life between the net, smartphone and the city gradually become aware that only the sovereign game with the mechanics of state game systems will change the practice of international data transfer.</div>
-			<div class="viewer_text" id="zombie_text_de">Heute expandieren Games nachhaltig in Spielshows, Reality Games, Schnitzeljagden in der Stadt, vor allem aber durch die alltägliche Übetragung ihrer Game Rhetorik (Gamification) in verschiedene Realitäten des von relationaler Datenanalyse und Überwachung geprägten technoiden Lebens.</div>
-			<div class="viewer_text" id="zombie_text_en">Today games are continuously expanding, in game shows, reality games, paperchases through the city, but above all through the everyday transmission of their game rhetoric (gamification) in various realities of technoid life influenced by relational data analysis and surveillance.</div>
-			<div class="signature">Margarete Jahrmann</div>
+			<div class="viewer_text" id="anon_text_de">>>Mit Hilfe von kommerziellen elektronischen sozialen Netzwerken platzten 2013 auch die von der Europäischen Union projektierten "Acta Gesetze", erstmals wegen erfolgreichen öffentlichen Protesten der Netzbewegung. Organisiert waren diese wiese ein Urban Game, mit Mobile Phones und Google Maps.<<</div>
+			<div class="viewer_text" id="anon_text_en">>>With the aid of commercial electronic social networks, in 2013 the “ACTA laws” planned by the European Union fell through, firstly because of the successful public protests of the net movement. These were organised like an urban game, using mobile phones and Google Maps.<<</div>
+			<div class="viewer_text" id="cam_text_de">>>Mit der digitalen Surveillance-(Un-)Kultur als Praxis des Alltäglichen, als Grundlage des sozialen Netzwerks und der Selbstkonstruktion erleben wir eine ähnlich schleichende Verschiebung in eine Big Data Welt.<<</div>
+			<div class="viewer_text" id="cam_text_en">>>With the digital surveillance (un)culture as the everyday practice, as the basis of the social network and of self-construction, we are experiencing a similar creeping shift into a big-data world.<<</div>
+			<div class="viewer_text" id="glass_text_de">>>Sicher geglaubte Realitäten beginnen sich mit der Alltäglichkeit des Digitalen zu verschieben. Mittel Alternate Realities wandern wir zunehmend zwischen den Welten, mäandern zwischen dem was aus erster, zweiter und dritter Welt einbricht.<<</div>
+			<div class="viewer_text" id="glass_text_en">>>With the digital becoming an everyday matter, realities that had been regarded as certain are beginning to shift. Using alternate realities we increasingly wander between the worlds, meander between what breaks in from the first, second and third world.<<</div>
+			<div class="viewer_text" id="pacman_text_de">>>Räume werden wahrgenommen, erkannt und gelebt. Diese Welterfindung wird in der Mechanik zeitgenössicher Urbaner Kunst-Spiele vorexerziert.<<</div>
+			<div class="viewer_text" id="pacman_text_en">>>Spaces are perceived, recognised and lived. This invention of a world is demonstrated in the mechanics of contemporary urban art games.<<</div>
+			<div class="viewer_text" id="parcour_text_de">>>In Urban Games streichen die Spieler durch die Städte, nehmen ihre Topografie im Parcour und manifestieren sich im physischen Dialog mit Sprachen der Gamer und politischer Aktivisten.<<</div>
+			<div class="viewer_text" id="parcour_text_en">>>In urban games, the players prowl through the cities, take their topography in the parcour and manifest themselves in physical dialogues in the language of gamers and political activists.<<</div>
+			<div class="viewer_text" id="sat_text_de">>>Durch [...] Kunst-Spiele werden 'Real Player' des Alltags zwischen Netz, Smart Phone und Stadt sich allmählich darüber bewusst, dass nur das souveräne Spiel mit den Mechaniken staatstragender Spielsysteme die Praxis internationalen Datenhandels verändern wird.<<</div>
+			<div class="viewer_text" id="sat_text_en">>>Through [...] “real players” of everyday life between the net, smartphone and the city gradually become aware that only the sovereign game with the mechanics of state game systems will change the practice of international data transfer.<<</div>
+			<div class="viewer_text" id="zombie_text_de">>>Heute expandieren Games nachhaltig in Spielshows, Reality Games, Schnitzeljagden in der Stadt, vor allem aber durch die alltägliche Übetragung ihrer Game Rhetorik (Gamification) in verschiedene Realitäten des von relationaler Datenanalyse und Überwachung geprägten technoiden Lebens.<<</div>
+			<div class="viewer_text" id="zombie_text_en">>>Today games are continuously expanding, in game shows, reality games, paperchases through the city, but above all through the everyday transmission of their game rhetoric (gamification) in various realities of technoid life influenced by relational data analysis and surveillance.<<</div>
+			<div class="signature">>>Margarete Jahrmann<<</div>
 		</div>
 		<div class="viewer_media_area">
-			<!-- YouTube embedding handled by JavaScript function (generateMedia()) -->
+			<!-- YouTube embedding handled by JavaScript function generateMedia() -->
 		</div>
 		<button></button>
 		<div class="gate" style="left:25%;bottom:-15px"></div>
