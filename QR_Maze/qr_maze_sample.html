@@ -201,36 +201,13 @@
 			/*
 				Creates 10 empty rows with unique ids
 			*/
-			for (var x = 0; x < 10; x++) {
-				$("#overlay").append("<tr id=\"row" + x + "\"></tr>");
-				/*
-					Creates 10 cells in each row.
-					Use row ID and cell value to
-					access individual cells
-				*/
-				for (var i = 0; i < 10; i++) {
-					$("#overlay #row" + x).append("<td class=\"tableCell\" id=\"cell_" + x + "_" + i + "\"><div class=\"dark\"></div></td>")
-				};
-			};
+			generateTable();
 			
 			/*
 				Places links at X random spots on the
 				#overlay table
 			*/
-			for (var i = 0; i < 9; i++) {
-				var randomRow = Math.floor(Math.random() * 10);
-				var randomCol = Math.floor(Math.random() * 10)
-				var $randomCell = $("#cell_" + randomRow + "_" + randomCol);
-
-				/* ^ Idea: instead of adding something to the existing table, what if you put the random cells into
-					an array of cell objects? */
-				$($randomCell).html("Cell #"+i+"; ["+randomRow+", "+randomCol+"]");
-				if (i == 8) {
-					setTimeout(function() {
-						getCellCoordinates($randomCell);
-					}, 2000);
-				};
-			};
+			placeLinks();
 
 			/*
 				Handles clicks on table cells
@@ -257,6 +234,37 @@
 					leftPosition = (elOffset.left + (elWidth/2) - (viewportWidth/2));
 
 				$.scrollTo({top:topPosition, left:leftPosition}, 800);
+		}
+
+		function generateTable() {
+			for (var x = 0; x < 10; x++) {
+				$("#overlay").append("<tr id=\"row" + x + "\"></tr>");
+				/*
+					Creates 10 cells in each row.
+					Use row ID and cell value to
+					access individual cells
+				*/
+				for (var i = 0; i < 10; i++) {
+					$("#overlay #row" + x).append("<td class=\"tableCell\" id=\"cell_" + x + "_" + i + "\"><div class=\"dark\"></div></td>")
+				};
+			};
+		}
+
+		function placeLinks() {
+			for (var i = 0; i < 9; i++) {
+				var randomRow = Math.floor(Math.random() * 10);
+				var randomCol = Math.floor(Math.random() * 10)
+				var $randomCell = $("#cell_" + randomRow + "_" + randomCol);
+
+				/* ^ Idea: instead of adding something to the existing table, what if you put the random cells into
+					an array of cell objects? */
+				$($randomCell).html("Cell #"+i+"; ["+randomRow+", "+randomCol+"]");
+				if (i == 8) {
+					setTimeout(function() {
+						getCellCoordinates($randomCell);
+					}, 2000);
+				};
+			};
 		}
 	</script>
 
