@@ -16,54 +16,91 @@
 			background-attachment: scroll;
 		}
 
-		#emptyBox {
-			height: 1000px;
-			width: 2000px;
+		.field {
+			height: 4200px;
+			width: 4100px;
 		}
 
-		#link1 {
+		.exhibition {
+			position: absolute;
+		}
+
+		#cali_gallery {
+			border: 2px solid green;
+			left: 70px;	top: 830px;
+			width: 1070px; height: 770px;
+			color: limegreen;
+			text-align: center;
+		}
+
+		#cali_book {
 			border: 2px dotted green;
-			position: relative;
-			left: 150px;
-			top: 600px;
-			width: 150px;
-			height: 200px;
-			color: limegreen;
-			text-align: center;
+			left: 1170px; top: 1288px;
+			width: 382px; height: 540px;
 		}
 
-		#link2 {
+		#top_video {
 			border: 2px solid red;
-			position: relative;
-			left: 700px;
-			top: 100px;
-			width: 200px;
-			height: 75px;
+			left: 1740px; top: 350px;
+			width: 890px; height: 500px;
 			color: limegreen;
 			text-align: center;
 		}
 
-		#link3 {
+		#er_liebt_mich_gallery {
 			border: 2px solid blue;
-			position: relative;
-			left: 250px;
-			top: 300px;
-			width: 175px;
-			height: 175px;
+			left: 2140px; top: 1510px;
+			width: 1030px; height: 330px;
 			color: limegreen;
 			text-align: center;
+		}
+
+		#er_liebt_mich_video {
+			border: 2px dotted blue;
+			left: 3020px; top: 1190px;
+			width: 500px; height: 284px;
+		}
+
+		#street_scape {
+			border: 2px dotted purple;
+			left: 170px; top: 2520px;
+			width: 480px; height: 772px;
+		}
+
+		#resistance {
+			border: 2px dotted orange;
+			left: 2840px; height: 2600px;
+			width: 1358px; height: 304px;
+		}
+
+		#sequenz {
+			border: 2px dotted pink;
+			left: 1488px; top: 3494px;
+			width: 660px; height: 496px;
+		}
+
+		#taste_data_panels {
+			border: 2px dotted black;
+			left: 1500px; top: 2256px;
+			width: 392px; height: 930px;
+		}
+
+		#taste_data_sausage {
+			border: 2px dashed black;
+			left: 1920px; top: 2016px;
+			width: 610px; height: 458px;
 		}
 
 		.home {
-				height: 50px; width: 100px;
-				top: 50%; left: 50%;
-				margin: -25px 0 0 -50px;
-				position: absolute;
-				border-radius: 2px;
-				background-color: orange;
-				text-align: center;
-				padding-top: 20px;
-			}
+			height: 50px; width: 100px;
+			top: 50%; left: 50%;
+			margin: -25px 0 0 -50px;
+			position: absolute;
+			border-radius: 2px;
+			background-color: orange;
+			text-align: center;
+			padding-top: 20px;
+		}
 
 		.home a {
 			text-decoration: none;
@@ -95,10 +132,17 @@
 </head>
 
 <body>
-	<div id="emptyBox">
-		<div id="link1">This is Link 1</div>
-		<div id="link2">This is Link 2</div>
-		<div id="link3">This is Link 3</div>
+	<div class="field">
+		<div class="exhibition" id="cali_gallery">Cali Gallery</div>
+		<div class="exhibition" id="cali_book">Cali Book</div>
+		<div class="exhibition" id="top_video">Vermutungen uber das Erwachen</div>
+		<div class="exhibition" id="er_liebt_mich_gallery">Er Liebt Mich Gallery</div>
+		<div class="exhibition" id="er_liebt_mich_video">Er Liebt Mich Video</div>
+		<div class="exhibition" id="street_scape">Street Scape</div>
+		<div class="exhibition" id="resistance">Resistance</div>
+		<div class="exhibition" id="sequenz">Sequenz</div>
+		<div class="exhibition" id="taste_data_panels">Taste of Data - 3-Panel</div>
+		<div class="exhibition" id="taste_data_sausage">Taste of Data - Wurst</div>
 		<div class="home"><a href="../index.html">Home</a></div>
 	</div>
 </body>
