@@ -14,6 +14,7 @@
 			background-size: cover;
 			background-repeat: no-repeat;
 			background-attachment: scroll;
+			color: red;
 		}
 
 		.field {
@@ -23,6 +24,36 @@
 
 		.exhibition {
 			position: absolute;
+		}
+
+		.explanation {
+			position: absolute;
+			border: 5px solid red;
+			color: red;
+			font-family: sans-serif;
+			text-align: center;
+		}
+
+		.floating_text {
+			position: absolute;
+			color: red;
+			font-family: sans-serif;
+		}
+
+		#space_text {
+			left: 1756px; top: 1694px;
+			text-decoration: bold;
+		}
+
+		#explanation_text {
+			left: 1676px; top: 2152px;
+		}
+
+		#title_text_box {
+			left: 1380px; top: 1890px;
+			width: 588px; height: 240px;
+			font-size: 30px;
+			text-decoration: bold;
 		}
 
 		#cali_gallery {
@@ -41,28 +72,38 @@
 			width: 402px; height: 564px;
 		}
 
-		#top_video {
+		#vermutungen_video {
 			border: 2px solid red;
-
 			left: 1740px; top: 350px;
 			width: 890px; height: 500px;
 			color: limegreen;
 			text-align: center;
 		}
 
+		#vermutungen_text {
+			left: 2560px; top: 214px;
+			width: 384px; height: 216px;
+		}
+
 		#er_liebt_mich_gallery {
 			border: 2px solid blue;
 			background: url("Splace_Galerie_jpeg/Images/Nora-Wimmer_Photo-by-Florian-Albert.jpg");
+			background-repeat: no-repeat;
 			left: 2140px; top: 1510px;
 			width: 1030px; height: 310px;
 			color: limegreen;
 			text-align: center;
 		}
-
+		
 		#er_liebt_mich_video {
 			border: 2px dotted blue;
 			left: 3020px; top: 1190px;
 			width: 500px; height: 284px;
+		}
+
+		#er_liebt_mich_text {
+			left: 3092px; top: 1666px;
+			width: 412px; height: 178px;
 		}
 
 		#street_scape {
@@ -72,11 +113,21 @@
 			width: 474px; height: 770px;
 		}
 
+		#street_scape_text {
+			left: 634px; top: 2874px;
+			width: 320px; height: 220px;
+		}
+
 		#resistance {
 			border: 2px dotted orange;
 			background: url("Splace_Galerie_jpeg/Images/system-jaquelinde_her-yer-taksim4_without-video.jpg");
-			left: 2840px; height: 2600px;
+			left: 2840px; top: 2600px;
 			width: 808px; height: 300px;
+		}
+
+		#resistance_text {
+			left: 2332px; top: 2844px;
+			width: 564px; height: 288px;
 		}
 
 		#sequenz {
@@ -84,6 +135,11 @@
 			background: url("Splace_Galerie_jpeg/Images/Sequenz-7.jpg");
 			left: 1488px; top: 3494px;
 			width: 658px; height: 494px;
+		}
+
+		#sequenz_text {
+			left: 1210px; top: 3316px;
+			width: 320px; height: 200px;
 		}
 
 		#taste_data_panels {
@@ -100,11 +156,16 @@
 			width: 610px; height: 458px;
 		}
 
+		#taste_data_text {
+			left: 754px; top: 2124px;
+			width: 384px; height: 216px;
+		}
+
 		.home {
 			height: 50px; width: 100px;
-			top: 50%; left: 50%;
+			bottom: 5px; right: 5px;
 			margin: -25px 0 0 -50px;
-			position: absolute;
+			position: fixed;
 			border-radius: 2px;
 			background-color: orange;
 			text-align: center;
@@ -143,17 +204,30 @@
 
 <body>
 	<div class="field">
-		<div class="exhibition" id="cali_gallery">Cali Gallery</div>
-		<div class="exhibition" id="cali_book">Cali Book</div>
-		<div class="exhibition" id="top_video">Vermutungen uber das Erwachen</div>
-		<div class="exhibition" id="er_liebt_mich_gallery">Er Liebt Mich Gallery</div>
+		<div class="floating_text" id="space_text">EXHIBITION SPACE</div>
+		<div class="floating_text" id="explanation_text">Schauen Sie sich um! Just move around!</div>
+		
+		<div class="exhibition" id="cali_gallery"></div>
+		<div class="exhibition" id="cali_book"></div>
+		<div class="exhibition" id="vermutungen_video">Vermutungen uber das Erwachen</div>
+		<div class="exhibition" id="er_liebt_mich_gallery"></div>
 		<div class="exhibition" id="er_liebt_mich_video">Er Liebt Mich Video</div>
-		<div class="exhibition" id="street_scape">Street Scape</div>
-		<div class="exhibition" id="resistance">Resistance</div>
-		<div class="exhibition" id="sequenz">Sequenz</div>
-		<div class="exhibition" id="taste_data_panels">Taste of Data - 3-Panel</div>
-		<div class="exhibition" id="taste_data_sausage">Taste of Data - Wurst</div>
+		<div class="exhibition" id="street_scape"></div>
+		<div class="exhibition" id="resistance"></div>
+		<div class="exhibition" id="sequenz"></div>
+		<div class="exhibition" id="taste_data_panels"></div>
+		<div class="exhibition" id="taste_data_sausage"></div>
+
+		<div class="explanation" id="title_text_box">Ausstellungsraum</div>
+		<div class="explanation" id="vermutungen_text">Sample Text</div>
+		<div class="explanation" id="er_liebt_mich_text">Sample Text</div>
+		<div class="explanation" id="street_scape_text">Sample Text</div>
+		<div class="explanation" id="resistance_text">Sample Text</div>
+		<div class="explanation" id="sequenz_text">Sequenz</div>
+		<div class="explanation" id="taste_data_text">Sample Text</div>
+
 		<div class="home"><a href="../index.html">Home</a></div>
+
 	</div>
 </body>
 </html>
