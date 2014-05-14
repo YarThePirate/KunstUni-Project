@@ -9,12 +9,9 @@
 	<title>Ausstellungsraum</title>
 	<style type="text/css">
 		body {
-			background: url("Resources/austria_background.jpg");
-			background-position: left top;
-			background-size: cover;
-			background-repeat: no-repeat;
-			background-attachment: scroll;
+			
 			color: red;
+			font-family: sans-serif;
 		}
 
 		.field {
@@ -32,32 +29,45 @@
 			color: red;
 			font-family: sans-serif;
 			text-align: center;
+			z-index: -1;
 		}
 
 		.floating_text {
 			position: absolute;
 			color: red;
 			font-family: sans-serif;
+			white-space: nowrap;
+		}
+
+		.small_text {
+			margin: 20px;
+		}
+
+		.title_text {
+			margin: 20px;
+			font-weight: bold;
+			font-size: 30px;
 		}
 
 		#space_text {
 			left: 1756px; top: 1694px;
-			text-decoration: bold;
+			font-weight: bold;
 		}
 
 		#explanation_text {
-			left: 1676px; top: 2152px;
+			left: 1636px; top: 2152px;
+			font-size: 14px;
 		}
 
 		#title_text_box {
 			left: 1380px; top: 1890px;
 			width: 588px; height: 240px;
 			font-size: 30px;
-			text-decoration: bold;
+			font-weight: bold;
 		}
 
 		#cali_gallery {
-			border: 2px solid green;
+			/*border: 2px solid green;*/
 			background: url("Splace_Galerie_jpeg/Images/2-13_cali_book_7181.jpg");
 			left: 70px;	top: 830px;
 			width: 1098px; height: 804px;
@@ -66,7 +76,7 @@
 		}
 
 		#cali_book {
-			border: 2px dotted green;
+			/*border: 2px dotted green;*/
 			background: url("Splace_Galerie_jpeg/Images/1_cali_book_7181.jpg");
 			left: 1170px; top: 1288px;
 			width: 402px; height: 564px;
@@ -86,7 +96,7 @@
 		}
 
 		#er_liebt_mich_gallery {
-			border: 2px solid blue;
+			/*border: 2px solid blue;*/
 			background: url("Splace_Galerie_jpeg/Images/Nora-Wimmer_Photo-by-Florian-Albert.jpg");
 			background-repeat: no-repeat;
 			left: 2140px; top: 1510px;
@@ -96,7 +106,7 @@
 		}
 		
 		#er_liebt_mich_video {
-			border: 2px dotted blue;
+			border: 2px solid blue;
 			left: 3020px; top: 1190px;
 			width: 500px; height: 284px;
 		}
@@ -107,8 +117,9 @@
 		}
 
 		#street_scape {
-			border: 2px dotted purple;
+			/*border: 2px dotted purple;*/
 			background: url("Splace_Galerie_jpeg/Images/street_scape_03-helsinki.jpg");
+			background-repeat: no-repeat;
 			left: 170px; top: 2520px;
 			width: 474px; height: 770px;
 		}
@@ -119,10 +130,16 @@
 		}
 
 		#resistance {
-			border: 2px dotted orange;
+			/*border: 2px dotted orange;*/
 			background: url("Splace_Galerie_jpeg/Images/system-jaquelinde_her-yer-taksim4_without-video.jpg");
 			left: 2840px; top: 2600px;
 			width: 808px; height: 300px;
+		}
+
+		#resistance_video {
+			border: 2px solid orange;
+			left: 3655px; top: 2600px;
+			width: 538px; height: 300px;
 		}
 
 		#resistance_text {
@@ -131,7 +148,7 @@
 		}
 
 		#sequenz {
-			border: 2px dotted pink;
+			/*border: 2px dotted pink;*/
 			background: url("Splace_Galerie_jpeg/Images/Sequenz-7.jpg");
 			left: 1488px; top: 3494px;
 			width: 658px; height: 494px;
@@ -143,14 +160,14 @@
 		}
 
 		#taste_data_panels {
-			border: 2px dotted black;
+			/*border: 2px dotted black;*/
 			background: url("Splace_Galerie_jpeg/Images/taste-of-data1024x768.jpg");
 			left: 1500px; top: 2256px;
 			width: 390px; height: 928px;
 		}
 
 		#taste_data_sausage {
-			border: 2px dashed black;
+			/*border: 2px dashed black;*/
 			background: url("Splace_Galerie_jpeg/Images/Wurscht_2040x1536-px.jpg");
 			left: 1920px; top: 2016px;
 			width: 610px; height: 458px;
@@ -214,17 +231,42 @@
 		<div class="exhibition" id="er_liebt_mich_video">Er Liebt Mich Video</div>
 		<div class="exhibition" id="street_scape"></div>
 		<div class="exhibition" id="resistance"></div>
+		<div class="exhibition" id="resistance_video"></div>
 		<div class="exhibition" id="sequenz"></div>
 		<div class="exhibition" id="taste_data_panels"></div>
 		<div class="exhibition" id="taste_data_sausage"></div>
 
 		<div class="explanation" id="title_text_box">Ausstellungsraum</div>
-		<div class="explanation" id="vermutungen_text">Sample Text</div>
-		<div class="explanation" id="er_liebt_mich_text">Sample Text</div>
-		<div class="explanation" id="street_scape_text">Sample Text</div>
-		<div class="explanation" id="resistance_text">Sample Text</div>
-		<div class="explanation" id="sequenz_text">Sequenz</div>
-		<div class="explanation" id="taste_data_text">Sample Text</div>
+		<div class="explanation" id="vermutungen_text">
+			<div class="small_text">Hanna Priemetzhofer</div>
+			<div class="title_text">Vermutungen über das Erwachen</div>
+			<div class="small_text">Kurzfilm, 2013\nTaumatrop, 02:00 min</div>
+		</div>
+		<div class="explanation" id="er_liebt_mich_text">
+			<div class="small_text">Nora Wimmer</div>
+			<div class="title_text">3408 x er liebt mich (nicht)</div>
+			<div class="small_text">Video, 07:38 min, 2013</div>
+		</div>
+		<div class="explanation" id="street_scape_text">
+			<div class="small_text">Jaak Kaevats</div>
+			<div class="title_text">Street-Scape</div>
+			<div class="small_text">Datenvisualizierung, Fotografie, 2013\nLambda Print, 60 x 120 cm</div>
+		</div>
+		<div class="explanation" id="resistance_text">
+			<div class="small_text">System Jaquelinde</div>
+			<div class="title_text">HER YET TAKS_M - HER YER D_REN__! TAKSIM IS EVERYWHERE - RESISTANCE IS EVERYWHERE!</div>
+			<div class="small_text">Video, 10:21 min, 2013</div>
+		</div>
+		<div class="explanation" id="sequenz_text">
+			<div class="small_text">Christoph Frey</div>
+			<div class="title_text">Sequenz 7</div>
+			<div class="small_text">Audio-Arbeit, 2013\nDroning waves and crackling noises</div>
+		</div>
+		<div class="explanation" id="taste_data_text">
+			<div class="small_text">Veronika Krenn, Vesela Mihaylova</div>
+			<div class="title_text">Taste of Data</div>
+			<div class="small_text">Data Visualization, 2013</div>
+		</div>
 
 		<div class="home"><a href="../index.html">Home</a></div>
 
