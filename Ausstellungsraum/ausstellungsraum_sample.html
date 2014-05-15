@@ -15,6 +15,7 @@
 		}
 
 		.field {
+			position: relative;
 			height: 4200px;
 			width: 4100px;
 			z-index: -1;
@@ -30,7 +31,13 @@
 			color: #C50034;
 			font-family: sans-serif;
 			text-align: center;
-			z-index: -1;
+		}
+
+		.explanation div {
+			margin-top: 50px;
+			margin-bottom: 50px;
+			font-weight: bold;
+			font-size: 30px;
 		}
 
 		.floating_text {
@@ -40,31 +47,17 @@
 			white-space: nowrap;
 		}
 
-		.small_text {
-			margin: 20px;
-		}
-
-		.title_text {
-			margin: 20px;
-			font-weight: bold;
-			font-size: 30px;
-		}
-
-		#space_text {
-			left: 1756px; top: 1694px;
-			font-weight: bold;
-		}
-
-		#explanation_text {
-			left: 1636px; top: 2152px;
-			font-size: 14px;
-		}
-
 		#title_text_box {
+			padding: 0;
 			left: 1380px; top: 1890px;
 			width: 588px; height: 240px;
-			font-size: 30px;
 			font-weight: bold;
+		}
+
+		#title_text_box div {
+			margin: 0;
+			font-size: 40px;
+			padding-top: 95px;
 		}
 
 		#cali_gallery {
@@ -84,16 +77,11 @@
 		}
 
 		#vermutungen_video {
-			border: 2px solid red;
+			/*border: 2px solid red;*/
 			left: 1740px; top: 350px;
 			width: 890px; height: 500px;
 			color: limegreen;
 			text-align: center;
-		}
-
-		#vermutungen_text {
-			left: 2560px; top: 214px;
-			width: 384px; height: 216px;
 		}
 
 		#er_liebt_mich_gallery {
@@ -107,14 +95,8 @@
 		}
 		
 		#er_liebt_mich_video {
-			border: 2px solid blue;
 			left: 3020px; top: 1190px;
 			width: 500px; height: 284px;
-		}
-
-		#er_liebt_mich_text {
-			left: 3092px; top: 1666px;
-			width: 412px; height: 178px;
 		}
 
 		#street_scape {
@@ -123,11 +105,6 @@
 			background-repeat: no-repeat;
 			left: 170px; top: 2520px;
 			width: 474px; height: 770px;
-		}
-
-		#street_scape_text {
-			left: 634px; top: 2874px;
-			width: 320px; height: 220px;
 		}
 
 		#resistance {
@@ -143,21 +120,11 @@
 			width: 538px; height: 300px;
 		}
 
-		#resistance_text {
-			left: 2332px; top: 2844px;
-			width: 564px; height: 288px;
-		}
-
 		#sequenz {
 			/*border: 2px dotted pink;*/
 			background: url("Splace_Galerie_jpeg/Images/Sequenz-7.jpg");
 			left: 1488px; top: 3494px;
 			width: 658px; height: 494px;
-		}
-
-		#sequenz_text {
-			left: 1210px; top: 3316px;
-			width: 320px; height: 200px;
 		}
 
 		#taste_data_panels {
@@ -172,11 +139,6 @@
 			background: url("Splace_Galerie_jpeg/Images/Wurscht_2040x1536-px.jpg");
 			left: 1920px; top: 2016px;
 			width: 610px; height: 458px;
-		}
-
-		#taste_data_text {
-			left: 754px; top: 2124px;
-			width: 384px; height: 216px;
 		}
 
 		.home {
@@ -222,17 +184,17 @@
 
 <body>
 	<div class="field">
-		<div class="floating_text" id="space_text">EXHIBITION SPACE</div>
-		<div class="floating_text" id="explanation_text">Schauen Sie sich um! Just move around!</div>
+		<div class="floating_text" style="left:1756px; top:1694px; font-weight:bold;">EXHIBITION SPACE</div>
+		<div class="floating_text" style="left:1636px; top:2152px; font-size:14px;">Schauen Sie sich um! Just move around!</div>
 		
 		<div class="exhibition" id="cali_gallery"></div>
 		<div class="exhibition" id="cali_book"></div>
 		<div class="exhibition" id="vermutungen_video">
-			<iframe src="https://player.vimeo.com/video/58564876?title=0&amp;byline=0" width="890" height="500" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+			<!--iframe src="https://player.vimeo.com/video/58564876?title=0&amp;byline=0" width="890" height="500" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe-->
 		</div>
 		<div class="exhibition" id="er_liebt_mich_gallery"></div>
 		<div class="exhibition" id="er_liebt_mich_video">
-			<iframe src="https://player.vimeo.com/video/87473679?title=0&amp;byline=0" width="500" height="284" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+			<!--iframe src="https://player.vimeo.com/video/87473679?title=0&amp;byline=0" width="500" height="284" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe-->
 		</div>
 		<div class="exhibition" id="street_scape"></div>
 		<div class="exhibition" id="resistance"></div>
@@ -243,40 +205,50 @@
 		<div class="exhibition" id="taste_data_panels"></div>
 		<div class="exhibition" id="taste_data_sausage"></div>
 
-		<div class="explanation" id="title_text_box">Ausstellungsraum</div>
-		<div class="explanation" id="vermutungen_text">
-			<div class="small_text">Hanna Priemetzhofer</div>
-			<div class="title_text">Vermutungen über das Erwachen</div>
-			<div class="small_text">Kurzfilm, 2013<br>Taumatrop, 02:00 min</div>
+		<div class="explanation" id="title_text_box">
+			<div>Ausstellungsraum</div>
 		</div>
-		<div class="explanation" id="er_liebt_mich_text">
-			<div class="small_text">Nora Wimmer</div>
-			<div class="title_text">3408 x er liebt mich (nicht)</div>
-			<div class="small_text">Video, 07:38 min, 2013</div>
+		<div class="explanation" style="left: 2560px; top: 214px; width: 384px; height: 216px;">
+			<p>Hanna Priemetzhofer</p>
+			<div>Vermutungen über das Erwachen</div>
+			<p>Kurzfilm, 2013<br>Taumatrop, 02:00 min</p>
 		</div>
-		<div class="explanation" id="street_scape_text">
-			<div class="small_text">Jaak Kaevats</div>
-			<div class="title_text">Street-Scape</div>
-			<div class="small_text">Datenvisualizierung, Fotografie, 2013<br>Lambda Print, 60 x 120 cm</div>
+		<div class="explanation" style="left: 3092px; top: 1666px; width: 412px; height: 178px;">
+			<p>Nora Wimmer</p>
+			<div>3408 x er liebt mich (nicht)</div>
+			<p>Video, 07:38 min, 2013</p>
 		</div>
-		<div class="explanation" id="resistance_text">
-			<div class="small_text">System Jaquelinde</div>
-			<div class="title_text">HER YET TAKS_M - HER YER D_REN__! TAKSIM IS EVERYWHERE - RESISTANCE IS EVERYWHERE!</div>
-			<div class="small_text">Video, 10:21 min, 2013</div>
+		<div class="explanation" style="left: 634px; top: 2874px; width: 320px; height: 220px;">
+			<p>Jaak Kaevats</p>
+			<div>Street-Scape</div>
+			<p>Datenvisualizierung, Fotografie, 2013<br>Lambda Print, 60 x 120 cm</p>
 		</div>
-		<div class="explanation" id="sequenz_text">
-			<div class="small_text">Christoph Frey</div>
-			<div class="title_text">Sequenz 7</div>
-			<div class="small_text">Audio-Arbeit, 2013<br>Droning waves and crackling noises</div>
+		<div class="explanation" style="left: 2332px; top: 2844px; width: 564px; height: 288px;">
+			<p>System Jaquelinde</p>
+			<div>HER YET TAKS_M - HER YER D_REN__! TAKSIM IS EVERYWHERE - RESISTANCE IS EVERYWHERE!</div>
+			<p>Video, 10:21 min, 2013</p>
 		</div>
-		<div class="explanation" id="taste_data_text">
-			<div class="small_text">Veronika Krenn, Vesela Mihaylova</div>
-			<div class="title_text">Taste of Data</div>
-			<div class="small_text">Data Visualization, 2013</div>
+		<div class="explanation" id="sequenz_text" style="left: 1210px; top: 3316px; width: 320px; height: 200px;">
+			<p>Christoph Frey</p>
+			<div>Sequenz 7</div>
+			<p>Audio-Arbeit, 2013<br>Droning waves and crackling noises</p>
+		</div>
+		<div class="explanation" id="taste_data_text" style="left:754px; top:2124px; width:384px; height:216px;">
+			<p>Veronika Krenn, Vesela Mihaylova</p>
+			<div>Taste of Data</div>
+			<p>Data Visualization, 2013</p>
 		</div>
 
 		<div class="home"><a href="../index.html">Home</a></div>
 
 	</div>
+
+	<script>
+		$(document).ready(function() {
+			$("#vermutungen_video").html("<iframe src=\"https://player.vimeo.com/video/58564876?title=0&amp;byline=0\" width=\"890\" height=\"500\" frameborder=\"0\" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>");
+
+			$("#er_liebt_mich_video").html("<iframe src=\"https://player.vimeo.com/video/87473679?title=0&amp;byline=0\" width=\"500\" height=\"284\" frameborder=\"0\" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>");
+		});
+	</script>
 </body>
 </html>
