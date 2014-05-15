@@ -27,6 +27,7 @@
 
 		.explanation {
 			position: absolute;
+			padding: 30px;
 			border: 5px solid #C50034;
 			color: #C50034;
 			font-family: sans-serif;
@@ -34,10 +35,15 @@
 		}
 
 		.explanation div {
-			margin-top: 50px;
-			margin-bottom: 50px;
+			margin-top: 30px;
+			margin-bottom: 30px;
 			font-weight: bold;
 			font-size: 30px;
+		}
+
+		.explanation p {
+			font-size: 18px;
+			margin: 0;
 		}
 
 		.floating_text {
@@ -141,6 +147,12 @@
 			width: 610px; height: 458px;
 		}
 
+		#taste_data_video {
+			/*border: 2px solid black;*/
+			left: 1028px; top: 2306px;
+			width: 445px; height: 250px;
+		}
+
 		.home {
 			height: 50px; width: 100px;
 			bottom: 5px; right: 5px;
@@ -198,36 +210,38 @@
 		<div class="exhibition" id="sequenz"></div>
 		<div class="exhibition" id="taste_data_panels"></div>
 		<div class="exhibition" id="taste_data_sausage"></div>
+		<div class="exhibition" id="taste_data_video"></div>
 
 		<div class="explanation" id="title_text_box">
 			<div>Ausstellungsraum</div>
 		</div>
-		<div class="explanation" style="left: 2560px; top: 214px; width: 384px; height: 216px">
+
+		<div class="explanation" style="left: 2560px; top: 214px; width: 384px">
 			<p>Hanna Priemetzhofer</p>
 			<div>Vermutungen über das Erwachen</div>
 			<p>Kurzfilm, 2013<br>Taumatrop, 02:00 min</p>
 		</div>
-		<div class="explanation" style="left: 3092px; top: 1666px; width: 412px; height: 178px;">
+		<div class="explanation" style="left: 3092px; top: 1666px; width: 412px">
 			<p>Nora Wimmer</p>
 			<div>3408 x er liebt mich (nicht)</div>
 			<p>Video, 07:38 min, 2013</p>
 		</div>
-		<div class="explanation" style="left: 634px; top: 2874px; width: 320px; height: 220px;">
+		<div class="explanation" style="left: 634px; top: 2874px; width: 320px">
 			<p>Jaak Kaevats</p>
 			<div>Street-Scape</div>
 			<p>Datenvisualizierung, Fotografie, 2013<br>Lambda Print, 60 x 120 cm</p>
 		</div>
-		<div class="explanation" style="left: 2332px; top: 2844px; width: 564px; height: 288px;">
+		<div class="explanation" style="left: 2332px; top: 2844px; width: 564px">
 			<p>System Jaquelinde</p>
 			<div>HER YET TAKS_M - HER YER D_REN__! TAKSIM IS EVERYWHERE - RESISTANCE IS EVERYWHERE!</div>
 			<p>Video, 10:21 min, 2013</p>
 		</div>
-		<div class="explanation" id="sequenz_text" style="left: 1210px; top: 3316px; width: 320px; height: 200px;">
+		<div class="explanation" style="left: 1210px; top: 3316px; width: 320px">
 			<p>Christoph Frey</p>
 			<div>Sequenz 7</div>
 			<p>Audio-Arbeit, 2013<br>Droning waves and crackling noises</p>
 		</div>
-		<div class="explanation" id="taste_data_text" style="left: 754px; top: 2124px; width: 384px; height: 216px;">
+		<div class="explanation" style="left: 754px; top: 2124px; width: 384px">
 			<p>Veronika Krenn, Vesela Mihaylova</p>
 			<div>Taste of Data</div>
 			<p>Data Visualization, 2013</p>
@@ -240,6 +254,8 @@
 	<script>
 		$(document).ready(function() {
 			$.scrollTo({top:1790, left:1080});
+
+			$("#taste_data_video").html("<iframe src=\"https://player.vimeo.com/video/78167010?title=0&amp;byline=0\" width=\"445\" height=\"250\" frameborder=\"0\" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>");
 
 			$("#vermutungen_video").html("<iframe src=\"https://player.vimeo.com/video/58564876?title=0&amp;byline=0\" width=\"890\" height=\"500\" frameborder=\"0\" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>");
 
