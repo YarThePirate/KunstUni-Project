@@ -189,18 +189,12 @@
 		
 		<div class="exhibition" id="cali_gallery"></div>
 		<div class="exhibition" id="cali_book"></div>
-		<div class="exhibition" id="vermutungen_video">
-			<!--iframe src="https://player.vimeo.com/video/58564876?title=0&amp;byline=0" width="890" height="500" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe-->
-		</div>
+		<div class="exhibition" id="vermutungen_video"></div>
 		<div class="exhibition" id="er_liebt_mich_gallery"></div>
-		<div class="exhibition" id="er_liebt_mich_video">
-			<!--iframe src="https://player.vimeo.com/video/87473679?title=0&amp;byline=0" width="500" height="284" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe-->
-		</div>
+		<div class="exhibition" id="er_liebt_mich_video"></div>
 		<div class="exhibition" id="street_scape"></div>
 		<div class="exhibition" id="resistance"></div>
-		<div class="exhibition" id="resistance_video">
-			<!--embed src=""-->
-		</div>
+		<div class="exhibition" id="resistance_video"></div>
 		<div class="exhibition" id="sequenz"></div>
 		<div class="exhibition" id="taste_data_panels"></div>
 		<div class="exhibition" id="taste_data_sausage"></div>
@@ -208,7 +202,7 @@
 		<div class="explanation" id="title_text_box">
 			<div>Ausstellungsraum</div>
 		</div>
-		<div class="explanation" style="left: 2560px; top: 214px; width: 384px; height: 216px;">
+		<div class="explanation" style="left: 2560px; top: 214px; width: 384px; height: 216px">
 			<p>Hanna Priemetzhofer</p>
 			<div>Vermutungen über das Erwachen</div>
 			<p>Kurzfilm, 2013<br>Taumatrop, 02:00 min</p>
@@ -233,7 +227,7 @@
 			<div>Sequenz 7</div>
 			<p>Audio-Arbeit, 2013<br>Droning waves and crackling noises</p>
 		</div>
-		<div class="explanation" id="taste_data_text" style="left:754px; top:2124px; width:384px; height:216px;">
+		<div class="explanation" id="taste_data_text" style="left: 754px; top: 2124px; width: 384px; height: 216px;">
 			<p>Veronika Krenn, Vesela Mihaylova</p>
 			<div>Taste of Data</div>
 			<p>Data Visualization, 2013</p>
@@ -245,9 +239,13 @@
 
 	<script>
 		$(document).ready(function() {
+			$.scrollTo({top:1790, left:1080});
+
 			$("#vermutungen_video").html("<iframe src=\"https://player.vimeo.com/video/58564876?title=0&amp;byline=0\" width=\"890\" height=\"500\" frameborder=\"0\" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>");
 
 			$("#er_liebt_mich_video").html("<iframe src=\"https://player.vimeo.com/video/87473679?title=0&amp;byline=0\" width=\"500\" height=\"284\" frameborder=\"0\" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>");
+
+			$("#resistance_video").html("Link to be embeded");
 		});
 	</script>
 </body>
