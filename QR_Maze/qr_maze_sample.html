@@ -201,17 +201,17 @@
 						
 			generateTable($("#overlay"));
 
-			$(".dark").click(function() {
-				var $cell = $(this).parent();
+			$(".tableCell").click(function() {
+				var $cell = $(this)
 				if (validateCell($cell)) {
-					alert("Cell Valid: Fade and Scroll executing");
-					$(this).fadeOut();
+					//alert("Cell Valid: Fade and Scroll executing");
+					$(this).addClass("clicked");
+					$(this).children().fadeOut();
 					scrollToCell($cell);
 				} else {
 					$("#arrowTable").fadeIn('slow').delay(250).fadeOut('slow');
 				}
 			});
-
 
 		});
 
@@ -266,27 +266,35 @@
 					setTimeout(function() {
 						var $randomCell = $("#cell_" + randomRow + "_" + randomCol);
 						scrollToCell($randomCell);
+						$randomCell.children().fadeOut();
 					}, 200);
 				} else {
 					var coordinates = randomRow + "_" + randomCol;
 					cells_with_links[coordinates] = "Link #" + i;
-					alert("Loop cycle: " + i + "\nCoordinate: " + coordinates + "\nHash: " + cells_with_links[coordinates]);
-				}
+				};
 			};
-		}
+			var links = [];
+			for (var key in cells_with_links) {
+				links.push(key + ": " + cells_with_links[key] + "\n");
+			}
+
+			alert(links);
+		};
 
 		/*
 			Makes sure that the cell is adjacent to the cell just clicked
 		*/
 		function validateCell( cell ) {
+			alert(cell.class);
+
 			var row = getRow(cell),
 				col = getCol(cell);
 			var row_check = Math.abs(current_cell[0] - getRow(cell)),
 				col_check = Math.abs(current_cell[1] - getCol(cell));
-			alert("Current Cell: [" + current_cell + "]\nSelected Cell: [" + row + "," + col + "]");
+			//alert("Current Cell: [" + current_cell + "]\nSelected Cell: [" + row + "," + col + "]");
 
 			if (row_check + col_check != 1) {
-				alert("false!\nrow check = " + row_check + "\ncol check = " + col_check);
+				//alert("false!\nrow check = " + row_check + "\ncol check = " + col_check);
 				return false;
 			}
 			return true;
