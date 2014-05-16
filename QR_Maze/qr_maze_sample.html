@@ -193,22 +193,14 @@
 
 		$(document).ready(function() {
 
-			/*
-				Start screen disappears when clicked
-			*/
 			$(".start_screen").click(function() {
 				$(this).fadeOut();
 				$(".qrcode").show();
 			});
 						
-			generateTable();
+			generateTable($("#overlay"));
 			placeLinks();
 
-			/*
-				Handles clicks on table cells
-					- Centers clicked element on the screen (IN PROGRESS)
-					- Limits cliecks to adjacent table cells
-			*/
 			$(".dark").click(function() {
 				var $cell = $(this).parent();
 				if (validateCell($cell)) {
@@ -249,16 +241,12 @@
 		}
 
 		/*
-				Creates 10 empty rows with unique ids
+				Creates a 10 x 10 Table; all cells have a unique ID
+				based on their row and column
 		*/
-		function generateTable() {
+		function generateTable( table ) {
 			for (var x = 0; x < 10; x++) {
-				$("#overlay").append("<tr id=\"row" + x + "\"></tr>");
-				/*
-					Creates 10 cells in each row.
-					Use row ID and cell value to
-					access individual cells
-				*/
+				table.append("<tr id=\"row" + x + "\"></tr>");
 				for (var i = 0; i < 10; i++) {
 					$("#overlay #row" + x).append("<td class=\"tableCell\" id=\"cell_" + x + "_" + i + "\"><div class=\"dark\"></div></td>")
 				};
