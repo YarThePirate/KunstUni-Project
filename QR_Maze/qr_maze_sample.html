@@ -30,7 +30,10 @@
 			background-image: url("qrcode_final.png");
 			height: 2000px; width: 2000px;
 			z-index: -2;
-			margin: 750px;
+		}
+
+		.wrapper {
+			padding: 750px;
 			display: none;
 		}
 
@@ -178,11 +181,13 @@
 		</tr>
 	</table>
 	
-	<div class="qrcode">
-	
-		<table id="overlay">
-			<!-- 10 x 10 Table filled in by the script below -->
-		</table>
+	<div class="wrapper">
+		<div class="qrcode">
+		
+			<table id="overlay">
+				<!-- 10 x 10 Table filled in by the script below -->
+			</table>
+		</div>
 	</div>
 
 	<div class="home"><a href="../index.html">Home</a></div>
@@ -195,7 +200,7 @@
 
 			$(".start_screen").click(function() {
 				$(this).fadeOut();
-				$(".qrcode").show();
+				$(".wrapper").show();
 				placeLinks();
 			});
 						
@@ -203,13 +208,10 @@
 
 			$(".tableCell").click(function() {
 				var $cell = $(this)
-				if (validateCell($cell)) {
-					//alert("Cell Valid: Fade and Scroll executing");
-					$(this).addClass("clicked");
-					$(this).children().fadeOut();
-					scrollToCell($cell);
+				if (cellIsValid($cell)) {
+					clickCell($cell);
 				} else {
-					$("#arrowTable").fadeIn('slow').delay(250).fadeOut('slow');
+					showArrowTable();
 				}
 			});
 
@@ -265,6 +267,7 @@
 				if (i == 8) {
 					setTimeout(function() {
 						var $randomCell = $("#cell_" + randomRow + "_" + randomCol);
+						$randomCell.addClass("clicked");
 						scrollToCell($randomCell);
 						$randomCell.children().fadeOut();
 					}, 200);
@@ -284,8 +287,10 @@
 		/*
 			Makes sure that the cell is adjacent to the cell just clicked
 		*/
-		function validateCell( cell ) {
-			alert(cell.class);
+		function cellIsValid( cell ) {
+			if (cell.hasClass("clicked")) {
+				return true;
+			}
 
 			var row = getRow(cell),
 				col = getCol(cell);
@@ -314,6 +319,27 @@
 		function getCol( cell ) {
 			var col = parseInt(cell.attr('id').substring(7,8));
 			return col;
+		}
+
+		/*
+			Briefly displays the table of directional arrows
+		*/
+		function showArrowTable() {
+			$("#arrowTable").fadeIn('slow').delay(250).fadeOut('slow');
+		}
+
+		/*
+			Handles clicks on valid table cells
+		*/
+		function clickCell( cell ) {
+			$(cell).addClass("clicked");
+			$(cell).children().fadeOut();
+
+			var coordinate = cell.attr('id').substring(5,8);
+			if (cells_with_links.hasOwnProperty(coordinate)) {
+				alert("You found a link!");
+			};
+			scrollToCell($(cell));
 
 		}
 	</script>
