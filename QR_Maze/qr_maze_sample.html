@@ -210,13 +210,23 @@
 					- Limits cliecks to adjacent table cells
 			*/
 			$(".dark").click(function() {
-				$(this).fadeOut();
-				$("#arrowTable").fadeIn('slow').delay(250).fadeOut('slow');
-				scrollToCell(this);
+				var $cell = $(this).parent();
+				if (validateCell($cell)) {
+					alert("Cell Valid: Fade and Scroll executing");
+					$(this).fadeOut();
+					scrollToCell($cell);
+				} else {
+					$("#arrowTable").fadeIn('slow').delay(250).fadeOut('slow');
+				}
 			});
 
 
 		});
+
+
+		/*
+		------------------------FUNCTIONS---------------------------
+		*/
 
 		/*
 			Centers the clicked cell on the screen
@@ -224,14 +234,18 @@
 		function scrollToCell(cell) {
 			var viewportWidth = $(window).width(),
 					viewportHeight = $(window).height(),
-					foo = $(cell),
-					elWidth = foo.width(),
-					elHeight = foo.height(),
-					elOffset = foo.offset(),
+					$cell = $(cell),
+					elWidth = $cell.width(),
+					elHeight = $cell.height(),
+					elOffset = $cell.offset(),
 					topPosition = (elOffset.top + (elHeight/2) - (viewportHeight/2)),
 					leftPosition = (elOffset.left + (elWidth/2) - (viewportWidth/2));
 
 			$.scrollTo({top:topPosition, left:leftPosition}, 800);
+
+			var row = getRow($cell),
+				col = getCol($cell);
+			current_cell = [row, col];
 		}
 
 		/*
@@ -275,14 +289,43 @@
 		/*
 			Makes sure that the cell is adjacent to the cell just clicked
 		*/
-		function validateCell() {
+		function validateCell( cell ) {
+			var row = getRow(cell);
+			var col = getCol(cell);
+			alert("Current Cell: [" + current_cell + "]\nSelected Cell: [" + row + "," + col + "]");
 
+			if (Math.abs(current_cell[0] - row) > 1) {
+				alert("false: bad row value (" + Math.abs(current_cell[0]-row) + ")");
+				return false;
+			}
+			if (Math.abs(current_cell[1] - col) > 1) {
+				alert("false: bad column value (" + Math.abs(current_cell[0]-col) + ")");
+				return false;
+			}
+			return true;
 		}
 
 		/*
 			If the cell is a valid cell, makes the cell visible
 		*/
 		function makeCellVisible() {
+
+		}
+
+		/*
+			Uses the cell ID to parse an integer value for the row of a cell
+		*/
+		function getRow( cell ) {
+			var row = parseInt(cell.attr('id').substring(5,6));
+			return row;
+		}
+
+		/*
+			Uses the cell ID to parse an integer value for the column a cell
+		*/
+		function getCol( cell ) {
+			var col = parseInt(cell.attr('id').substring(7,8));
+			return col;
 
 		}
 	</script>
