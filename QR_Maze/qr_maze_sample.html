@@ -188,7 +188,7 @@
 	<div class="home"><a href="../index.html">Home</a></div>
 
 	<script>
-		var cells_with_links; // a hash that holds the x and y coordinates of the cells containing links
+		var cells_with_links = {}; // a hash that holds the x and y coordinates of the cells containing links
 		var current_cell; // a 1x2 array representing the row and column of the currently centered cell
 
 		$(document).ready(function() {
@@ -196,10 +196,10 @@
 			$(".start_screen").click(function() {
 				$(this).fadeOut();
 				$(".qrcode").show();
+				placeLinks();
 			});
 						
 			generateTable($("#overlay"));
-			placeLinks();
 
 			$(".dark").click(function() {
 				var $cell = $(this).parent();
@@ -261,16 +261,17 @@
 			for (var i = 0; i < 9; i++) {
 				var randomRow = Math.floor(Math.random() * 10);
 				var randomCol = Math.floor(Math.random() * 10)
-				var $randomCell = $("#cell_" + randomRow + "_" + randomCol);
-
-				/* ^ Idea: instead of adding something to the existing table, what if you put the random cells into
-					an array of cell objects? */
-				$($randomCell).html("Cell #"+i+"; ["+randomRow+", "+randomCol+"]");
+				
 				if (i == 8) {
 					setTimeout(function() {
+						var $randomCell = $("#cell_" + randomRow + "_" + randomCol);
 						scrollToCell($randomCell);
-					}, 2000);
-				};
+					}, 200);
+				} else {
+					var coordinates = randomRow + "_" + randomCol;
+					cells_with_links[coordinates] = "Link #" + i;
+					alert("Loop cycle: " + i + "\nCoordinate: " + coordinates + "\nHash: " + cells_with_links[coordinates]);
+				}
 			};
 		}
 
@@ -289,13 +290,6 @@
 				return false;
 			}
 			return true;
-		}
-
-		/*
-			If the cell is a valid cell, makes the cell visible
-		*/
-		function makeCellVisible() {
-
 		}
 
 		/*
