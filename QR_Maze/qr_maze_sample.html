@@ -17,13 +17,18 @@
 			position: absolute;
 			height: 100%; width: 100%;
 			background-color: black;
+			color: red;
+			text-align: center;
+			font-family: sans-serif;
 		}
 
 		.start_screen div {
 			position: absolute;
-			height: 40%; width: 40%;
+			padding: 75px 0 75px 0;
+			width: 30%;
 			top: 30%; right: 10%;
 			border: 4px solid red;
+			font-size: 3em;
 		}
 
 		.qrcode {
@@ -161,7 +166,12 @@
 <!-- START BODY -->
 <body>
 
-	<div class="start_screen"><div></div></div>
+	<div class="start_screen">
+		<div>
+			Spielräume
+			<p style="font-size:18px">Lydia Hartl</p>
+		</div>
+	</div>
 
 	<table id="arrowTable">
 		<tr>
@@ -294,12 +304,11 @@
 
 			var row = getRow(cell),
 				col = getCol(cell);
+
 			var row_check = Math.abs(current_cell[0] - getRow(cell)),
 				col_check = Math.abs(current_cell[1] - getCol(cell));
-			//alert("Current Cell: [" + current_cell + "]\nSelected Cell: [" + row + "," + col + "]");
 
 			if (row_check + col_check != 1) {
-				//alert("false!\nrow check = " + row_check + "\ncol check = " + col_check);
 				return false;
 			}
 			return true;
