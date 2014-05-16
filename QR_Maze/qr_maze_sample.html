@@ -290,16 +290,14 @@
 			Makes sure that the cell is adjacent to the cell just clicked
 		*/
 		function validateCell( cell ) {
-			var row = getRow(cell);
-			var col = getCol(cell);
+			var row = getRow(cell),
+				col = getCol(cell);
+			var row_check = Math.abs(current_cell[0] - getRow(cell)),
+				col_check = Math.abs(current_cell[1] - getCol(cell));
 			alert("Current Cell: [" + current_cell + "]\nSelected Cell: [" + row + "," + col + "]");
 
-			if (Math.abs(current_cell[0] - row) > 1) {
-				alert("false: bad row value (" + Math.abs(current_cell[0]-row) + ")");
-				return false;
-			}
-			if (Math.abs(current_cell[1] - col) > 1) {
-				alert("false: bad column value (" + Math.abs(current_cell[0]-col) + ")");
+			if (row_check + col_check != 1) {
+				alert("false!\nrow check = " + row_check + "\ncol check = " + col_check);
 				return false;
 			}
 			return true;
