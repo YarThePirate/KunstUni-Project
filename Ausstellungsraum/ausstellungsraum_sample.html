@@ -250,6 +250,8 @@
 
 		<div class="home"><a href="../index.html">Home</a></div>
 
+		<a class="sequenz_pic" href="gallery/gallery/stapel1/v_gallery_01-1.jpg" style="display:none"></a>
+
 		<a class="er_liebt_mich_pic" href="gallery/gallery/stapel3/v_gallery_03-1.jpg" style="display:none"></a>
 		<a class="er_liebt_mich_pic" href="gallery/gallery/stapel3/v_gallery_03-2.jpg" style="display:none"></a>
 		<a class="er_liebt_mich_pic" href="gallery/gallery/stapel3/v_gallery_03-3.jpg" style="display:none"></a>
@@ -281,16 +283,22 @@
 		$(document).ready(function() {
 			$.scrollTo({top:1790, left:1080});
 
-			var $er_liebt_mich_pic = $(".er_liebt_mich_pic").colorbox({rel:'er_liebt_mich_pic', transition:"fade"}),
+			var $sequenz_pic = $(".sequenz_pic").colorbox({rel: 'sequenz_pic', transition: "fade"});
+				$er_liebt_mich_pic = $(".er_liebt_mich_pic").colorbox({rel:'er_liebt_mich_pic', transition:"fade"}),
 				$cali_pic = $(".cali_pic").colorbox({rel:'cali_pic', transition:"fade"}),
 				$resistance_pic = $(".resistance_pic").colorbox({rel:'resistance_pic', transition:"fade"}),
 				$street_scape_pic = $(".street_scape_pic").colorbox({rel:'street_scape_pic', transition:"fade"}),
 				$taste_data_pic = $(".taste_data_pic").colorbox({rel:'taste_data_pic', transition:"fade"});
 
+			$("#sequenz").click(function(e) {
+				e.preventDefault();
+				$sequenz_pic.eq(0).click();
+			});
+
 			$("#er_liebt_mich_gallery").click(function(e) {
 				e.preventDefault();
 				$er_liebt_mich_pic.eq(0).click();
-			})
+			});
 
 			$("#taste_data_panels").click(function(e) {
 				e.preventDefault();
