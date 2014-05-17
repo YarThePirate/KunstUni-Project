@@ -90,6 +90,10 @@
 			width: 10%;
 		}
 
+		.tableCell img {
+			display: none;
+		}
+
 		.dark {
 			height: 100%;
 			width: 100%;
@@ -302,8 +306,8 @@
 				return true;
 			}
 
-			var row = getRow(cell),
-				col = getCol(cell);
+			//var row = getRow(cell),
+			//	col = getCol(cell);
 
 			var row_check = Math.abs(current_cell[0] - getRow(cell)),
 				col_check = Math.abs(current_cell[1] - getCol(cell));
@@ -346,10 +350,17 @@
 
 			var coordinate = cell.attr('id').substring(5,8);
 			if (cells_with_links.hasOwnProperty(coordinate)) {
-				alert("You found a link!");
+				//alert(cells_with_links[coordinate]);
+				showLink( $(cell) )
 			};
 			scrollToCell($(cell));
 
+		}
+
+		function showLink( cell ) {
+			var random_button = Math.floor((Math.random() * 5) + 1);
+			$(cell).html("<img src=\"Buttons/Buttons/Buttons-0" + random_button + ".jpg\">");
+			$(cell).children().fadeIn();
 		}
 	</script>
 
