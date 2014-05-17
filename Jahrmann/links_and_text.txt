@@ -1,0 +1,110 @@
+CSS:
+Red = splace Red
+
+Zitierter Text:
+font: 'Circular Std';
+font-weight: Medium;
+font-size: 18pt;
+line-spacing: 32pt;
+color: #fff;
+
+Margarete Jahrmann:
+Abstand zum Text darüber: 20px
+font-size: 14pt
+Medium Italic
+color: #fff;
+
+Credits: font-weight: Bold 
+Text allgemein: font-size: 11pt
+font-weight: Medium
+Link-Color: splace Red
+
+–––––––––––––––––––––––––––
+
+1. PARKOUR
+• DE
+»In Urban Games streichen die Spieler durch die Städte, nehmen ihre Topografie im Parcour und manifestieren sich im physischen Dialog mit Sprachen der Gamer und politischer Aktivisten.«
+
+• EN
+»In urban games, the players prowl through the cities, take their topography in the parcour and manifest themselves in physical dialogues in the language of gamers and political activists.«
+
+• Video
+https://www.youtube.com/watch?v=67qqEcGDC0s
+
+Credits: Super Mario Parkour, 
+<a href="https://www.youtube.com/user/Warialasky">Warialasky</a>
+
+2. ANONYMOUS
+• DE
+»Mit Hilfe von kommerziellen elektronischen sozialen Netzwerken platzten 2013 auch die von der Europäischen Union projektierten "Acta Gesetze", erstmals wegen erfolgreichen öffentlichen Protesten der Netzbewegung. Organisiert waren diese wiese ein Urban Game, mit Mobile Phones und Google Maps.«
+
+• EN
+»With the aid of commercial electronic social networks, in 2013 the “ACTA laws” planned by the European Union fell through, firstly because of the successful public protests of the net movement. These were organised like an urban game, using mobile phones and Google Maps.«
+
+• Video
+www.youtube.com/embed/jway31DMZp0
+
+Credits: Gemeinsam gegen ACTA, <a href="http://acta.digitalegesellschaft.de/">Digitale Gesellschaft</a>
+
+3. SATELLITE
+• DE
+»Durch [...] Kunst-Spiele werden 'Real Player' des Alltags zwischen Netz, Smart Phone und Stadt sich allmählich darüber bewusst, dass nur das souveräne Spiel mit den Mechaniken staatstragender Spielsysteme die Praxis internationalen Datenhandels verändern wird.«
+
+• EN
+»Through [...] “real players” of everyday life between the net, smartphone and the city gradually become aware that only the sovereign game with the mechanics of state game systems will change the practice of international data transfer.«
+
+• Video
+www.youtube.com/embed/zk426Kmby7U
+
+Credits: BeforeTheSatelliteDetectsYou,  <a href="www.and-or.ch/beforethesatellite/">and-or.ch</a>
+
+4. PACMAN
+• DE
+»Räume werden wahrgenommen, erkannt und gelebt. Diese Welterfindung wird in der Mechanik zeitgenössicher Urbaner Kunst-Spiele vorexerziert.«
+
+• EN
+»Spaces are perceived, recognised and lived. This invention of a world is demonstrated in the mechanics of contemporary urban art games.«
+
+• Video
+https://www.youtube.com/embed/DRLegNSB0Pw
+
+Credits: arte - Pac Manhattan, <a href="http://www.pacmanhattan.com/">PacManhattan</a>
+
+
+5. CAMERA
+• DE
+»Mit der digitalen Surveillance-(Un-)Kultur als Praxis des Alltäglichen, als Grundlage des sozialen Netzwerks und der Selbstkonstruktion erleben wir eine ähnlich schleichende Verschiebung in eine Big Data Welt.« 
+
+• EN
+»With the digital surveillance (un)culture as the everyday practice, as the basis of the social network and of self-construction, we are experiencing a similar creeping shift into a big-data world.« 
+
+• Video
+www.youtube.com/embed/KNwqJTJAQMw
+
+Credits: Big Brother is watching you!, <a href="http://www.zdf.de/ZDFmediathek/beitrag/video/1920178/NSA-Big-Brother-is-watching-you%2521-">ZDFmediathek</a> 
+
+
+6. ZOMBIE
+• DE
+»Heute expandieren Games nachhaltig in Spielshows, Reality Games, Schnitzeljagden in der Stadt, vor allem aber durch die alltägliche Übetragung ihrer Game Rhetorik (Gamification) in verschiedene Realitäten des von relationaler Datenanalyse und Überwachung geprägten technoiden Lebens.«
+
+• EN
+»Today games are continuously expanding, in game shows, reality games, paperchases through the city, but above all through the everyday transmission of their game rhetoric (gamification) in various realities of technoid life influenced by relational data analysis and surveillance.«
+
+• Video
+www.youtube.com/embed/xlRgBvYFxTo
+
+Credits: "Zombies, Run!", https://www.zombiesrungame.com/">Six To Start</a>
+
+
+7. GLASS
+• DE
+»Sicher geglaubte Realitäten beginnen sich mit der Alltäglichkeit des Digitalen zu verschieben. Mittel Alternate Realities wandern wir zunehmend zwischen den Welten, mäandern zwischen dem was aus erster, zweiter und dritter Welt einbricht.«
+
+• EN
+»With the digital becoming an everyday matter, realities that had been regarded as certain are beginning to shift. Using alternate realities we increasingly wander between the worlds, meander between what breaks in from the first, second and third world.«
+
+• Video
+www.youtube.com/embed/v1uyQZNg2vE
+
+Credits: Google GLASS, <a href="http://www.google.com/glass/start/">Google</a>

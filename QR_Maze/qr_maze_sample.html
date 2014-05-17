@@ -38,7 +38,6 @@
 		}
 
 		.wrapper {
-			padding: 750px;
 			display: none;
 		}
 
@@ -159,11 +158,13 @@
 		Javascript Libraries - hosted locally
 		(JQuery, JQuery UI, JQuery Mobile)
 	-->
+	<link rel="stylesheet" href="colorbox.css"/>
 	<script src="../Scripts/jquery.js"></script>
 	<script src="../Scripts/jquery-ui-1.10.4.min.js"></script>
 	<!--script src="../Scripts/jquery-mobile-1.4.2.min.js"></script <== BAD COPY: GET NEW LOCAL COPY OF MOBILE LIBRARY -->
 	<script src="../Scripts/jquery-ui-touch-punch-0.2.3.min.js"></script>
 	<script src="../Scripts/jquery-scrollTo.min.js"></script>
+	<script src="../Scripts/jquery-colorbox-min.js"></script>
 
 </head>
 
@@ -215,6 +216,7 @@
 			$(".start_screen").click(function() {
 				$(this).fadeOut();
 				$(".wrapper").show();
+				$(".wrapper").css('padding', '750px');
 				placeLinks();
 			});
 						
@@ -287,7 +289,7 @@
 					}, 200);
 				} else {
 					var coordinates = randomRow + "_" + randomCol;
-					cells_with_links[coordinates] = "Link #" + i;
+					cells_with_links[coordinates] = false;
 				};
 			};
 			var links = [];
@@ -345,22 +347,34 @@
 			Handles clicks on valid table cells
 		*/
 		function clickCell( cell ) {
-			$(cell).addClass("clicked");
-			$(cell).children().fadeOut();
+			
+			if (!$(cell).hasClass("clicked")) {
+				$(cell).addClass("clicked");
+				$(cell).children().fadeOut();
+			}
 
 			var coordinate = cell.attr('id').substring(5,8);
 			if (cells_with_links.hasOwnProperty(coordinate)) {
-				//alert(cells_with_links[coordinate]);
-				showLink( $(cell) )
+				if (!cells_with_links[coordinate]) {
+					showLink( $(cell) );
+					cells_with_links[coordinate] = true;
+					//linksfound++;
+				};
 			};
 			scrollToCell($(cell));
 
 		}
 
+		/*
+			When a link is found, places a clickable button
+			in the middle of the Table Cell and ties it to a
+			link from the list of media
+		*/
 		function showLink( cell ) {
 			var random_button = Math.floor((Math.random() * 5) + 1);
 			$(cell).html("<img src=\"Buttons/Buttons/Buttons-0" + random_button + ".jpg\">");
 			$(cell).children().fadeIn();
+			return;
 		}
 	</script>
 
