@@ -18,7 +18,6 @@
 			position: relative;
 			height: 4200px;
 			width: 4100px;
-			z-index: -1;
 		}
 
 		.exhibition {
@@ -281,6 +280,47 @@
 	<script>
 		$(document).ready(function() {
 			$.scrollTo({top:1790, left:1080});
+
+			var $er_liebt_mich_pic = $(".er_liebt_mich_pic").colorbox({rel:'er_liebt_mich_pic', transition:"fade"}),
+				$cali_pic = $(".cali_pic").colorbox({rel:'cali_pic', transition:"fade"}),
+				$resistance_pic = $(".resistance_pic").colorbox({rel:'resistance_pic', transition:"fade"}),
+				$street_scape_pic = $(".street_scape_pic").colorbox({rel:'street_scape_pic', transition:"fade"}),
+				$taste_data_pic = $(".taste_data_pic").colorbox({rel:'taste_data_pic', transition:"fade"});
+
+			$("#er_liebt_mich_gallery").click(function(e) {
+				e.preventDefault();
+				$er_liebt_mich_pic.eq(0).click();
+			})
+
+			$("#taste_data_panels").click(function(e) {
+				e.preventDefault();
+				$taste_data_pic.eq(0).click();
+			});
+
+			$("#taste_data_sausage").click(function(e) {
+				e.preventDefault();
+				$taste_data_pic.eq(0).click();
+			});
+
+			$("#cali_gallery").click(function(e) {
+				e.preventDefault();
+				$cali_pic.eq(0).click();
+			});
+
+			$("#cali_book").click(function(e) {
+				e.preventDefault();
+				$cali_pic.eq(0).click();
+			});
+
+			$("#resistance").click(function(e) {
+				e.preventDefault();
+				$resistance_pic.eq(0).click();
+			});
+
+			$("#street_scape").click(function(e) {
+				e.preventDefault();
+				$street_scape_pic.eq(0).click();
+			});
 
 			$("#taste_data_video").html("<iframe src=\"https://player.vimeo.com/video/78167010?title=0&amp;byline=0\" width=\"445\" height=\"250\" frameborder=\"0\" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>");
 
