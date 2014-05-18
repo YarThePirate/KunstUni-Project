@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="author" content="Matt Scola">
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=medium-dpi" />
+	<title>Jahrmann</title>
+	<style type="text/css">
+		body {
+			background-color: black;
+		}
+
+		#start_screen {
+			height: 100%; width: 100%;
+			margin: -10px;
+			background-color: white;
+			position: absolute;
+			z-index: 1;
+			font-family: sans-serif;
+			font-size: 18px;
+			text-align: center;
+			color: red;
+		}
+
+		#ludic_start {
+			position: absolute;
+			height: 30%; width: 30%;
+			top: 15%; left: 30%;
+			border: 5px solid darkred;
+			color: darkred;
+			font-size: 36px;
+		}
+
+		/*
+			NO LONGER USED: JUST MAKE THE PICTURE IN THE ABOVE SECTION LOOK LIKE IT SHOULD
+		*/
+		#space_start {
+			position: absolute;
+			height: 30%; width: 30%;
+			top: 50%; left: 35%;
+			border: 5px solid #C50034;
+			color: #C50034;
+			font-size: 36px;
+		}
+
+		.field {
+			border: 5px solid white;
+			border-radius: 5px;
+			height: 95%; width: 95%;
+			position: absolute;
+		}
+
+		.viewer {
+			border: 5px solid white;
+			border-radius: 5px;
+			height: 95%; width: 95%;
+			position: absolute;
+			display: none;
+		}
+
+		.target_image {
+			height: 100px;
+			width: 100px;
+			position: absolute;
+		}
+
+		.gate {
+			height: 20px;
+			width: 50%;
+			position: absolute;
+			background-color: black;
+			/*border-color: dotted 2px red;*/
+		}
+
+		.viewer_media_area {
+			height: 50%; width: 50%;
+			top: 40%; left: 40%;
+			position: absolute;
+			/*background-color: blue;*/
+		}
+
+		.viewer_text_area {
+			height: 50%; width: 50%;
+			top: 10%; left: 10%;
+			position: absolute;
+			background-color: red;
+			/*color: black;*/
+			text-align: left;
+		}
+
+		.viewer_text {
+			display: none;
+			font: 'Circular Std';
+			font-family: sans-serif;
+			font-weight: medium;
+			font-size: 18pt;
+			line-spacing: 32pt;
+			color: #fff;
+		}
+
+		.signature {
+			position: absolute;
+			/*Abstand zum Text darüber: 20px;*/
+			font-family: sans-serif; /* <-- Is this necessary? */
+			font-size: 14pt;
+			font-weight: medium;
+			font-style: italic;
+			color: #fff;
+			bottom: 0;
+		}
+
+		.credits {
+			font-weight: bold; 
+			Text allgemein:;
+			font-size: 11pt;
+			font-weight: medium;
+			link-color: red;
+		}
+
+		.youtube-player {
+			height: 100%; width: 100%;
+		}
+
+		button {
+			height: 100px; width: 100px;
+			position: absolute;
+			bottom: 0; right: 0;
+			padding: 0;
+			margin: 5px;
+			background-color: black;
+			border-color: black;
+		}
+
+		button:focus {
+			outline: 0;
+		}
+
+		.home {
+			height: 50px; width: 100px;
+			bottom: 0; right: 0;
+			position: fixed;
+			margin: 5px;
+			border-radius: 2px;
+			background-color: orange;
+			text-align: center;
+			padding-top: 20px;
+			z-index: 2;
+		}
+
+		.home a {
+			text-decoration: none;
+			color: black;
+			font-family: sans-serif;
+			font-size: 24px;
+		}
+
+		.game_over {
+			position: absolute;
+			top: 50%; left: 50%;
+			margin: -176px 0 0 -235px;
+			color: white;
+			display: none;
+		}
+	</style>
+
+	<!--
+		Javascript Libraries - hosted on web
+		(JQuery, JQuery UI, JQuery Mobile, Buzz)
+	
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
+	<script src="http://http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+	<script src="http://jaysalvat.github.io/buzz/releases/latest/buzz.min.js"></script>
+-->
+	<!--
+		Javascript Libraries - hosted locally
+		(JQuery, JQuery UI, JQuery Mobile, Buzz)
+	-->
+	<script src="../Scripts/jquery.js"></script>
+	<script src="../Scripts/jquery-ui-1.10.4.min.js"></script>
+	<script src="../Scripts/jquery-ui-touch-punch-0.2.3.min.js"></script>
+	<script src="../Scripts/buzz.min.js"></script>
+	<!--script src="../Scripts/jquery-mobile-1.4.2.min.js"></script <== BAD COPY: GET NEW LOCAL COPY OF MOBILE LIBRARY -->
+
+</head>
+
+<body>
+
+	<div id="start_screen">MARGARETE JAHRMANN
+		<!--div id="ludic_start"--><img src="LUDICSPACE/Icons/Icons/LUDICSPACE_title_cropped.png"><!--/div-->
+	</div>
+
+	<!--	DELETE BELOW IN FINAL?	-->
+	<div class="home"><a href="../index.html">Home</a></div>
+	<!--	DELETE ABOVE IN FINAL?	-->
+
+	<div class="field">
+		<div class="gate" style="left:25%;top:-15px"></div>
+		<div class="target_image" id="anon"><img src="LUDICSPACE/Icons/Icons/IconAnon.gif"></div>
+		<div class="target_image" id="cam"><img src="LUDICSPACE/Icons/Icons/IconCam.gif"></div>
+		<div class="target_image" id="glass"><img src="LUDICSPACE/Icons/Icons/IconGlass.gif"></div>
+		<div class="target_image" id="pacman"><img src="LUDICSPACE/Icons/Icons/IconPacman.gif"></div>
+		<div class="target_image" id="parcour"><img src="LUDICSPACE/Icons/Icons/IconParcour.gif"></div>
+		<div class="target_image" id="sat"><img src="LUDICSPACE/Icons/Icons/IconSat.gif"></div>
+		<div class="target_image" id="zombie"><img src="LUDICSPACE/Icons/Icons/IconZombie.gif"></div>
+		<div class="game_over"><img src="LUDICSPACE/Icons/Icons/GameOverScreen.gif"></div>
+	</div>
+
+	<div class="viewer">
+		<div class="viewer_text_area">
+			<div class="viewer_text" id="anon_text_de">>>Mit Hilfe von kommerziellen elektronischen sozialen Netzwerken platzten 2013 auch die von der Europäischen Union projektierten "Acta Gesetze", erstmals wegen erfolgreichen öffentlichen Protesten der Netzbewegung. Organisiert waren diese wiese ein Urban Game, mit Mobile Phones und Google Maps.<<</div>
+			<!--div class="viewer_text" id="anon_text_en">>>With the aid of commercial electronic social networks, in 2013 the “ACTA laws” planned by the European Union fell through, firstly because of the successful public protests of the net movement. These were organised like an urban game, using mobile phones and Google Maps.<<</div-->
+			<div class="viewer_text" id="cam_text_de">>>Mit der digitalen Surveillance-(Un-)Kultur als Praxis des Alltäglichen, als Grundlage des sozialen Netzwerks und der Selbstkonstruktion erleben wir eine ähnlich schleichende Verschiebung in eine Big Data Welt.<<</div>
+			<!--div class="viewer_text" id="cam_text_en">>>With the digital surveillance (un)culture as the everyday practice, as the basis of the social network and of self-construction, we are experiencing a similar creeping shift into a big-data world.<<</div-->
+			<div class="viewer_text" id="glass_text_de">>>Sicher geglaubte Realitäten beginnen sich mit der Alltäglichkeit des Digitalen zu verschieben. Mittel Alternate Realities wandern wir zunehmend zwischen den Welten, mäandern zwischen dem was aus erster, zweiter und dritter Welt einbricht.<<</div>
+			<!--div class="viewer_text" id="glass_text_en">>>With the digital becoming an everyday matter, realities that had been regarded as certain are beginning to shift. Using alternate realities we increasingly wander between the worlds, meander between what breaks in from the first, second and third world.<<</div-->
+			<div class="viewer_text" id="pacman_text_de">>>Räume werden wahrgenommen, erkannt und gelebt. Diese Welterfindung wird in der Mechanik zeitgenössicher Urbaner Kunst-Spiele vorexerziert.<<</div>
+			<!--div class="viewer_text" id="pacman_text_en">>>Spaces are perceived, recognised and lived. This invention of a world is demonstrated in the mechanics of contemporary urban art games.<<</div-->
+			<div class="viewer_text" id="parcour_text_de">>>In Urban Games streichen die Spieler durch die Städte, nehmen ihre Topografie im Parcour und manifestieren sich im physischen Dialog mit Sprachen der Gamer und politischer Aktivisten.<<</div>
+			<!--div class="viewer_text" id="parcour_text_en">>>In urban games, the players prowl through the cities, take their topography in the parcour and manifest themselves in physical dialogues in the language of gamers and political activists.<<</div-->
+			<div class="viewer_text" id="sat_text_de">>>Durch [...] Kunst-Spiele werden 'Real Player' des Alltags zwischen Netz, Smart Phone und Stadt sich allmählich darüber bewusst, dass nur das souveräne Spiel mit den Mechaniken staatstragender Spielsysteme die Praxis internationalen Datenhandels verändern wird.<<</div>
+			<!--div class="viewer_text" id="sat_text_en">>>Through [...] “real players” of everyday life between the net, smartphone and the city gradually become aware that only the sovereign game with the mechanics of state game systems will change the practice of international data transfer.<<</div-->
+			<div class="viewer_text" id="zombie_text_de">>>Heute expandieren Games nachhaltig in Spielshows, Reality Games, Schnitzeljagden in der Stadt, vor allem aber durch die alltägliche Übetragung ihrer Game Rhetorik (Gamification) in verschiedene Realitäten des von relationaler Datenanalyse und Überwachung geprägten technoiden Lebens.<<</div>
+			<!--div class="viewer_text" id="zombie_text_en">>>Today games are continuously expanding, in game shows, reality games, paperchases through the city, but above all through the everyday transmission of their game rhetoric (gamification) in various realities of technoid life influenced by relational data analysis and surveillance.<<</div-->
+			<div class="signature">>>Margarete Jahrmann<<</div>
+		</div>
+		<div class="viewer_media_area">
+			<!-- YouTube embedding handled by JavaScript function generateMedia() -->
+		</div>
+		<button></button>
+		<div class="gate" style="left:25%;bottom:-15px"></div>
+	</div>
+
+	<!-- Begin Script -->
+	
+	<script>
+		
+		// Hash holding the unique YouTube video IDs to be used in generateMedia function
+		var youtube_id_hash = {"anon": "jway31DMZp0", 
+			"cam": "KNwqJTJAQMw",
+			"glass": "v1uyQZNg2vE",
+			"pacman": "DRLegNSB0Pw",
+			"parcour": "67qqEcGDC0s",
+			"sat": "zk426Kmby7U",
+			"zombie": "xlRgBvYFxTo"}
+
+		/*
+			- game_counter keeps track of how many images have been dropped
+			- image_id holds the unique ID of the image dropped; used to display correct media and text
+		*/
+		var game_counter = 0;
+		var image_id = "";
+
+		/*
+			Instantiates Buzz sounds for StartscreenSelect, IconGrab, and GameOver
+		*/
+		var start_screen_sound = new buzz.sound("LUDICSPACE/audio/StartscreenSelect.mp3"),
+			icon_grab_sound = new buzz.sound("LUDICSPACE/audio/IconGrab.mp3"),
+			game_over_sound = new buzz.sound("LUDICSPACE/audio/GameOver.mp3");
+
+		$(document).ready(function() {
+
+			$('.target_image').each(function() {
+				randomizePosition( $(this) );
+			})
+
+			/*
+				Turns icons into draggables and plays IconGrab sound when dragging begins
+			*/
+			$(".target_image").draggable( { containment: "parent",
+				start: function(event, ui) {
+					icon_grab_sound.play();
+				}
+			});
+			
+
+			/*
+				Sets properties of the "gate" div:
+				- On drop, switches screens
+				- On drop, creates a button in bottom right corner
+			*/
+			$(".gate").droppable({
+				drop: function(event, ui) {
+					$("button").html($(ui.draggable).html());
+					image_id = ui.draggable.attr("id");
+					$(ui.draggable).fadeOut(500);
+					
+					switchToViewer();
+					toggleMedia( image_id );
+					generateMedia( image_id );
+				},
+				tolerance: "touch"
+			});
+
+			/*
+				Code to make the blank start screen fade away
+				and play a sound effect
+			*/
+			$("#start_screen").click(function() {
+				start_screen_sound.play();
+				$("#start_screen").fadeOut();
+			});
+
+			/*
+				Slides the screen down from the media viewer to
+				the image field when the button is clicked.  Also
+				keeps track of how many 
+			*/
+			$("button").click(function() {
+				switchToField();
+				toggleMedia( image_id );
+
+				if (game_counter >= 7) {
+					$(".game_over").show();
+					game_over_sound.play();
+				}
+			});
+		});
+
+		/*
+			Shows or hides the media for the dropped elements
+		*/
+		function toggleMedia( imageID ) {
+			$("#" + imageID + "_text_de").toggle();
+			$("#" + imageID + "_media").toggle();
+		}
+
+		/*
+			- Slides toggles verticle slides for field and viewer.
+			- Includes a delay for viewer to create the illusion of
+				physical space.
+			- Increments game_counter by 1
+		*/
+		function switchToViewer() {
+			$(".viewer").delay(50).toggle("slide", {direction: "up", easing: "linear"});
+			$(".field").toggle("slide", {direction: "down", easing: "linear"});
+			game_counter++;
+		}
+
+		/*
+			- Immediately removes embedded video to increase responsiveness
+			- Slides toggles verticle slides for field and viewer.
+			- Includes a delay for field to create the illusion of
+				physical space.
+		*/
+		function switchToField() {
+			$(".viewer_media_area").html("");
+			$(".viewer").toggle("slide", {direction: "up", easing: "linear"});
+			$(".field").delay(50).toggle("slide", {direction: "down", easing: "linear"});
+		}
+
+		/*
+			Dynamically embeds YouTube videos based on the draggable image dropped
+		*/
+		function generateMedia( imageID ) {
+			$(".viewer_media_area").html("<iframe class=\"youtube-player\" id=\"" + imageID + "_media\" src=\"http://www.youtube.com/embed/" + youtube_id_hash[imageID] + "\"></iframe>");
+		}
+
+		/*
+			Sets Random starting positions for the images,
+			clustered near the center
+		*/
+		function randomizePosition( jqueryElement ) {
+			var randomTop = 25 + Math.floor(Math.random() * 50);
+			var randomLeft = 25 + Math.floor(Math.random() * 50);
+			jqueryElement.css('top', randomTop+'%');
+			jqueryElement.css('left', randomLeft+'%');
+		}
+	</script>
+
+</body>
+</html>
