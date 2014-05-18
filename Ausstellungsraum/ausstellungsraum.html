@@ -148,11 +148,16 @@
 
 		#taste_data_video {
 			/*border: 2px solid black;*/
-			left: 1028px; top: 2306px;
+			left: 928px; top: 2306px;
 			width: 445px; height: 250px;
 		}
 
-		.home {
+		#scroll_marker {
+			position: absolute;
+			left: 1080px; top: 1690px;
+		}
+
+		/*.home {
 			height: 50px; width: 100px;
 			bottom: 5px; right: 5px;
 			margin: -25px 0 0 -50px;
@@ -168,7 +173,7 @@
 			color: black;
 			font-family: sans-serif;
 			font-size: 24px;
-		}
+		}*/
 	</style>
 
 	<!--Javascript Libraries - hosted on web
@@ -196,6 +201,8 @@
 	<div class="field">
 		<div class="floating_text" style="left:1756px; top:1694px; font-weight:bold;">EXHIBITION SPACE</div>
 		<div class="floating_text" style="left:1636px; top:2152px; font-size:14px;">Schauen Sie sich um! Just move around!</div>
+
+		<div id="scroll_marker"></div>
 		
 		<div class="exhibition" id="cali_gallery"></div>
 		<div class="exhibition" id="cali_book"></div>
@@ -245,7 +252,7 @@
 			<p>Data Visualization, 2013</p>
 		</div>
 
-		<div class="home"><a href="../index.html">Home</a></div>
+		<!--div class="home"><a href="../index.html">Home</a></div-->
 
 
 		<!-- INVISIBLE LINKS TO GALLERY IMAGES 	-->
@@ -281,7 +288,7 @@
 
 	<script>
 		$(document).ready(function() {
-			$.scrollTo({top:1790, left:1080});
+			$.scrollTo($("#scroll_marker"), 0);
 
 			var $sequenz_pic = $(".sequenz_pic").colorbox({rel: 'sequenz_pic', transition: "fade"});
 				$er_liebt_mich_pic = $(".er_liebt_mich_pic").colorbox({rel:'er_liebt_mich_pic', transition:"fade"}),

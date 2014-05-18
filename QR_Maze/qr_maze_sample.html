@@ -102,6 +102,25 @@
 			z-index: 2;
 		}
 
+		.media {
+			position: fixed;
+			height: 100%;
+			width: 100%;
+			left: 0;
+			top: 0;
+			background-color: blue;
+			/*opacity: 0.6;*/
+			display: none;
+			z-index: 3;
+		}
+
+		.media img {
+			left: 50%; top: 50%;
+			margin-left: -225px;
+			margin-top: -75px;
+			position: absolute;
+		}
+
 		.home {
 			height: 50px; width: 100px;
 			bottom: 0; right: 0;
@@ -204,6 +223,8 @@
 			</table>
 		</div>
 	</div>
+
+	<div class="media"><img src="Spielraume_pngs/Spielraume_pngs/Apokalypse.png"></div>
 
 	<div class="home"><a href="../index.html">Home</a></div>
 
@@ -372,7 +393,7 @@
 		*/
 		function showLink( cell ) {
 			var random_button = Math.floor((Math.random() * 5) + 1);
-			$(cell).html("<img src=\"Buttons/Buttons/Buttons-0" + random_button + ".jpg\">");
+			$(cell).html("<<img src=\"Buttons/Buttons/Buttons-0" + random_button + ".jpg\">");
 			$(cell).children().fadeIn();
 			return;
 		}
