@@ -120,7 +120,7 @@
 		}
 
 		#resistance_video {
-			border: 2px solid orange;
+			/*border: 2px solid orange;*/
 			left: 3655px; top: 2600px;
 			width: 538px; height: 300px;
 		}
@@ -171,21 +171,18 @@
 		}
 	</style>
 
-	<!--
-		Javascript Libraries - hosted on web
-		(JQuery, JQuery UI, JQuery Mobile)
+	<!--Javascript Libraries - hosted on web
+		(JQuery, JQuery UI, JQuery Mobile) -->
 	
 	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 	<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
-	<script src="http://http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
--->
 	<!--
 		Javascript Libraries - hosted locally
 		(JQuery, JQuery UI, JQuery Mobile)
 	-->
 	<link rel="stylesheet" href="colorbox.css"/>
-	<script src="../Scripts/jquery.js"></script>
-	<script src="../Scripts/jquery-ui-1.10.4.min.js"></script>
+	<!--script src="../Scripts/jquery.js"></script-->
+	<!--script src="../Scripts/jquery-ui-1.10.4.min.js"></script-->
 	<script src="../Scripts/jquery-ui-touch-punch-0.2.3.min.js"></script>
 	<script src="../Scripts/jquery-scrollTo.min.js"></script>
 	<script src="../Scripts/jquery.colorbox-min.js"></script>
@@ -250,6 +247,9 @@
 
 		<div class="home"><a href="../index.html">Home</a></div>
 
+
+		<!-- INVISIBLE LINKS TO GALLERY IMAGES 	-->
+		<!--		FOR USE IN COLORBOX 		-->
 		<a class="sequenz_pic" href="gallery/gallery/stapel1/v_gallery_01-1.jpg" style="display:none"></a>
 
 		<a class="er_liebt_mich_pic" href="gallery/gallery/stapel3/v_gallery_03-1.jpg" style="display:none"></a>
@@ -330,13 +330,13 @@
 				$street_scape_pic.eq(0).click();
 			});
 
-			$("#taste_data_video").html("<iframe src=\"https://player.vimeo.com/video/78167010?title=0&amp;byline=0\" width=\"445\" height=\"250\" frameborder=\"0\" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>");
+			$("#taste_data_video").html("<iframe src=\"https://player.vimeo.com/video/78167010?title=0&amp;byline=0&amp;portrait=0\" width=\"445\" height=\"250\" frameborder=\"0\" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>");
 
-			$("#vermutungen_video").html("<iframe src=\"https://player.vimeo.com/video/58564876?title=0&amp;byline=0\" width=\"890\" height=\"500\" frameborder=\"0\" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>");
+			$("#vermutungen_video").html("<iframe src=\"https://player.vimeo.com/video/58564876?title=0&amp;byline=0&amp;portrait=0\" width=\"890\" height=\"500\" frameborder=\"0\" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>");
 
-			$("#er_liebt_mich_video").html("<iframe src=\"https://player.vimeo.com/video/87473679?title=0&amp;byline=0\" width=\"500\" height=\"284\" frameborder=\"0\" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>");
+			$("#er_liebt_mich_video").html("<iframe src=\"https://player.vimeo.com/video/87473679?title=0&amp;byline=0&amp;portrait=0\" width=\"500\" height=\"284\" frameborder=\"0\" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>");
 
-			$("#resistance_video").html("Link to be embeded");
+			$("#resistance_video").html("<iframe src=\"https://player.vimeo.com/video/86662051?title=0&amp;byline=0&amp;portrait=0\" width=\"538\" height=\"302\" frameborder=\"0\" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>");
 		});
 	</script>
 </body>
