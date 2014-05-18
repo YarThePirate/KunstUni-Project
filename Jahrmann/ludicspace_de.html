@@ -20,43 +20,44 @@
 			font-family: sans-serif;
 			font-size: 18px;
 			text-align: center;
-			color: red;
+			color: #C50034;
 		}
 
 		#ludic_start {
 			position: absolute;
 			height: 30%; width: 30%;
 			top: 15%; left: 30%;
-			border: 5px solid darkred;
-			color: darkred;
-			font-size: 36px;
-		}
-
-		/*
-			NO LONGER USED: JUST MAKE THE PICTURE IN THE ABOVE SECTION LOOK LIKE IT SHOULD
-		*/
-		#space_start {
-			position: absolute;
-			height: 30%; width: 30%;
-			top: 50%; left: 35%;
 			border: 5px solid #C50034;
 			color: #C50034;
 			font-size: 36px;
 		}
 
+		#start_pic {
+			position: absolute;
+			background-image: url("LUDICSPACE/Icons/Icons/LUDICSPACE_title_cropped.png");
+			background-repeat: no-repeat;
+			background-size: contain;
+			width: 50%; height: 80%;
+			margin-top: 1em;
+			left: 50%;
+			margin-left: -25%;
+		}
+
 		.field {
 			border: 5px solid white;
 			border-radius: 5px;
-			height: 95%; width: 95%;
+			height: 90%; width: 90%;
 			position: absolute;
+			margin: 2%;
 		}
 
 		.viewer {
 			border: 5px solid white;
 			border-radius: 5px;
-			height: 95%; width: 95%;
+			height: 90%; width: 90%;
 			position: absolute;
 			display: none;
+			margin: 2%;
 		}
 
 		.target_image {
@@ -70,14 +71,24 @@
 			width: 50%;
 			position: absolute;
 			background-color: black;
+			color: white;
+			font-family: sans-serif;
+			font-weight: bold;
+			font-size: 1em;
+			text-align: center;
 			/*border-color: dotted 2px red;*/
 		}
 
 		.viewer_media_area {
-			height: 50%; width: 50%;
+			height: 45vh; width: 45vw;
+			/*background-color: blue;*/
+		}
+
+		.media_wrapper {
 			top: 40%; left: 40%;
 			position: absolute;
-			/*background-color: blue;*/
+			padding: 0;
+			margin: 0;
 		}
 
 		.viewer_text_area {
@@ -112,10 +123,19 @@
 
 		.credits {
 			font-weight: bold; 
-			Text allgemein:;
+			/*Text allgemein:;*/
 			font-size: 11pt;
-			font-weight: medium;
-			link-color: red;
+			font-family: sans-serif;
+			color: white;
+			position: absolute;
+			right: 0;
+			margin-top: 1em;
+			display: none;
+		}
+
+		.credits a {
+			color: red;
+			text-decoration: none;
 		}
 
 		.youtube-player {
@@ -123,17 +143,28 @@
 		}
 
 		button {
-			height: 100px; width: 100px;
 			position: absolute;
 			bottom: 0; right: 0;
 			padding: 0;
 			margin: 5px;
 			background-color: black;
 			border-color: black;
+			color: white;
+			font-size: 10px
+			font-family: sans-serif;
 		}
 
 		button:focus {
 			outline: 0;
+		}
+
+		button p {
+			text-align: center;
+			margin: 5px;
+		}
+
+		button div {
+			height: 100px; width: 100px;
 		}
 
 		.home {
@@ -187,8 +218,9 @@
 
 <body>
 
-	<div id="start_screen">MARGARETE JAHRMANN
-		<!--div id="ludic_start"--><img src="LUDICSPACE/Icons/Icons/LUDICSPACE_title_cropped.png"><!--/div-->
+	<div id="start_screen">
+		<p style="font-weight:bold">MARGARETE JAHRMANN<p>
+		<div id="start_pic"></div>
 	</div>
 
 	<!--	DELETE BELOW IN FINAL?	-->
@@ -196,7 +228,7 @@
 	<!--	DELETE ABOVE IN FINAL?	-->
 
 	<div class="field">
-		<div class="gate" style="left:25%;top:-15px">Durchsetzen</div>
+		<div class="gate" style="left:25%;top:-15px">Durchsetzen</div> <!-- "Durchsetzen" in German Version -->
 		<div class="target_image" id="anon"><img src="LUDICSPACE/Icons/Icons/IconAnon.gif"></div>
 		<div class="target_image" id="cam"><img src="LUDICSPACE/Icons/Icons/IconCam.gif"></div>
 		<div class="target_image" id="glass"><img src="LUDICSPACE/Icons/Icons/IconGlass.gif"></div>
@@ -210,25 +242,38 @@
 	<div class="viewer">
 		<div class="viewer_text_area">
 			<div class="viewer_text" id="anon_text_de">>>Mit Hilfe von kommerziellen elektronischen sozialen Netzwerken platzten 2013 auch die von der Europäischen Union projektierten "Acta Gesetze", erstmals wegen erfolgreichen öffentlichen Protesten der Netzbewegung. Organisiert waren diese wiese ein Urban Game, mit Mobile Phones und Google Maps.<<</div>
-			<!--div class="viewer_text" id="anon_text_en">>>With the aid of commercial electronic social networks, in 2013 the “ACTA laws” planned by the European Union fell through, firstly because of the successful public protests of the net movement. These were organised like an urban game, using mobile phones and Google Maps.<<</div-->
+			<div class="viewer_text" id="anon_text_en">>>With the aid of commercial electronic social networks, in 2013 the “ACTA laws” planned by the European Union fell through, firstly because of the successful public protests of the net movement. These were organised like an urban game, using mobile phones and Google Maps.<<</div>
 			<div class="viewer_text" id="cam_text_de">>>Mit der digitalen Surveillance-(Un-)Kultur als Praxis des Alltäglichen, als Grundlage des sozialen Netzwerks und der Selbstkonstruktion erleben wir eine ähnlich schleichende Verschiebung in eine Big Data Welt.<<</div>
-			<!--div class="viewer_text" id="cam_text_en">>>With the digital surveillance (un)culture as the everyday practice, as the basis of the social network and of self-construction, we are experiencing a similar creeping shift into a big-data world.<<</div-->
+			<div class="viewer_text" id="cam_text_en">>>With the digital surveillance (un)culture as the everyday practice, as the basis of the social network and of self-construction, we are experiencing a similar creeping shift into a big-data world.<<</div>
 			<div class="viewer_text" id="glass_text_de">>>Sicher geglaubte Realitäten beginnen sich mit der Alltäglichkeit des Digitalen zu verschieben. Mittel Alternate Realities wandern wir zunehmend zwischen den Welten, mäandern zwischen dem was aus erster, zweiter und dritter Welt einbricht.<<</div>
-			<!--div class="viewer_text" id="glass_text_en">>>With the digital becoming an everyday matter, realities that had been regarded as certain are beginning to shift. Using alternate realities we increasingly wander between the worlds, meander between what breaks in from the first, second and third world.<<</div-->
+			<div class="viewer_text" id="glass_text_en">>>With the digital becoming an everyday matter, realities that had been regarded as certain are beginning to shift. Using alternate realities we increasingly wander between the worlds, meander between what breaks in from the first, second and third world.<<</div>
 			<div class="viewer_text" id="pacman_text_de">>>Räume werden wahrgenommen, erkannt und gelebt. Diese Welterfindung wird in der Mechanik zeitgenössicher Urbaner Kunst-Spiele vorexerziert.<<</div>
-			<!--div class="viewer_text" id="pacman_text_en">>>Spaces are perceived, recognised and lived. This invention of a world is demonstrated in the mechanics of contemporary urban art games.<<</div-->
+			<div class="viewer_text" id="pacman_text_en">>>Spaces are perceived, recognised and lived. This invention of a world is demonstrated in the mechanics of contemporary urban art games.<<</div>
 			<div class="viewer_text" id="parcour_text_de">>>In Urban Games streichen die Spieler durch die Städte, nehmen ihre Topografie im Parcour und manifestieren sich im physischen Dialog mit Sprachen der Gamer und politischer Aktivisten.<<</div>
-			<!--div class="viewer_text" id="parcour_text_en">>>In urban games, the players prowl through the cities, take their topography in the parcour and manifest themselves in physical dialogues in the language of gamers and political activists.<<</div-->
+			<div class="viewer_text" id="parcour_text_en">>>In urban games, the players prowl through the cities, take their topography in the parcour and manifest themselves in physical dialogues in the language of gamers and political activists.<<</div>
 			<div class="viewer_text" id="sat_text_de">>>Durch [...] Kunst-Spiele werden 'Real Player' des Alltags zwischen Netz, Smart Phone und Stadt sich allmählich darüber bewusst, dass nur das souveräne Spiel mit den Mechaniken staatstragender Spielsysteme die Praxis internationalen Datenhandels verändern wird.<<</div>
-			<!--div class="viewer_text" id="sat_text_en">>>Through [...] “real players” of everyday life between the net, smartphone and the city gradually become aware that only the sovereign game with the mechanics of state game systems will change the practice of international data transfer.<<</div-->
+			<div class="viewer_text" id="sat_text_en">>>Through [...] “real players” of everyday life between the net, smartphone and the city gradually become aware that only the sovereign game with the mechanics of state game systems will change the practice of international data transfer.<<</div>
 			<div class="viewer_text" id="zombie_text_de">>>Heute expandieren Games nachhaltig in Spielshows, Reality Games, Schnitzeljagden in der Stadt, vor allem aber durch die alltägliche Übetragung ihrer Game Rhetorik (Gamification) in verschiedene Realitäten des von relationaler Datenanalyse und Überwachung geprägten technoiden Lebens.<<</div>
-			<!--div class="viewer_text" id="zombie_text_en">>>Today games are continuously expanding, in game shows, reality games, paperchases through the city, but above all through the everyday transmission of their game rhetoric (gamification) in various realities of technoid life influenced by relational data analysis and surveillance.<<</div-->
+			<div class="viewer_text" id="zombie_text_en">>>Today games are continuously expanding, in game shows, reality games, paperchases through the city, but above all through the everyday transmission of their game rhetoric (gamification) in various realities of technoid life influenced by relational data analysis and surveillance.<<</div>
 			<div class="signature">>>Margarete Jahrmann<<</div>
 		</div>
-		<div class="viewer_media_area">
-			<!-- YouTube embedding handled by JavaScript function generateMedia() -->
+		<div class="media_wrapper">
+			<div class="viewer_media_area">
+				<!-- YouTube embedding handled by JavaScript function generateMedia() -->
+			</div>
+			<div class="credits" id="parcour_credits">Credits: Super Mario Parkour, <a href="https://www.youtube.com/user/Warialasky">Warialasky</a></div>
+			<div class="credits" id="anon_credits">Credits: Gemeinsam gegen ACTA, <a href="http://acta.digitalegesellschaft.de/">Digitale Gesellschaft</a></div>
+			<div class="credits" id="sat_credits">Credits: BeforeTheSatelliteDetectsYou,  <a href="www.and-or.ch/beforethesatellite/">and-or.ch</a></div>
+			<div class="credits" id="pacman_credits">Credits: arte - Pac Manhattan, <a href="http://www.pacmanhattan.com/">PacManhattan</a></div>
+			<div class="credits" id="cam_credits">Credits: Big Brother is watching you!, <a href="http://www.zdf.de/ZDFmediathek/beitrag/video/1920178/NSA-Big-Brother-is-watching-you%2521-">ZDFmediathek</a></div>
+			<div class="credits" id="zombie_credits">Credits: "Zombies, Run!", <a href="https://www.zombiesrungame.com/">Six To Start</a></div>
+			<div class="credits" id="glass_credits">Credits: Google GLASS, <a href="http://www.google.com/glass/start/">Google</a></div>
+
 		</div>
-		<button></button>
+		<button>
+			<p>Hin<p> <!-- "Hin" in German Version -->
+			<div></div>
+		</button>
 		<div class="gate" style="left:25%;bottom:-15px"></div>
 	</div>
 
@@ -282,7 +327,7 @@
 			*/
 			$(".gate").droppable({
 				drop: function(event, ui) {
-					$("button").html($(ui.draggable).html());
+					$("button div").html($(ui.draggable).html());
 					image_id = ui.draggable.attr("id");
 					$(ui.draggable).fadeOut(500);
 					
@@ -324,6 +369,7 @@
 		function toggleMedia( imageID ) {
 			$("#" + imageID + "_text_de").toggle();
 			$("#" + imageID + "_media").toggle();
+			$("#" + imageID + "_credits").toggle();
 		}
 
 		/*
