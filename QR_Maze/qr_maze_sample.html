@@ -4,11 +4,15 @@
 	<meta charset="UTF-8">
 	<meta name="author" content="Matt Scola">
 	<meta name="format-detection" content="telephone=no" />
-	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=medium-dpi" />
+	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, target-densitydpi=medium-dpi" />
 	
 	<title>Labyrinth</title>
 	<style>
 		
+		@font-face { font-family: 'Circular'; src: url('../css/font/CircularStd-Book.otf');}
+	    @font-face { font-family: 'CircularItalic'; src: url('../css/font/CircularStd-BookItalic.otf');}
+	    @font-face { font-family: 'CircularBold'; src: url('../css/font/CircularStd-Bold.otf');}
+
 		body {
 			background-color: black;
 		}
@@ -19,7 +23,7 @@
 			background-color: black;
 			color: red;
 			text-align: center;
-			font-family: sans-serif;
+			font-family: CircularBold;
 		}
 
 		.start_screen div {
@@ -31,10 +35,34 @@
 			font-size: 3em;
 		}
 
-		.qrcode {
-			background-image: url("qrcode_final.png");
+		.start_screen div p {
+			font-family: Circular;
+		}
+
+		.field {
+			
 			height: 2000px; width: 2000px;
 			z-index: -2;
+			top: 50%; left: 50%;
+			margin-left: -500px;
+			margin-top: -500px;
+			position: absolute;
+			padding: 750px;
+		}
+
+		.gameover {
+			background-image: url("qrcode_final.png");
+			background-repeat: no-repeat;
+			background-size: contain;
+			padding: 0;
+			height: 500px;
+			width: 500px;
+			top: 50%;
+			left: 50%;
+			position: absolute;
+			margin-left: -250px;
+			margin-top: -250px;
+			display: none;
 		}
 
 		.wrapper {
@@ -102,41 +130,71 @@
 			z-index: 2;
 		}
 
-		.media {
+		.media.backdrop {
 			position: fixed;
 			height: 100%;
 			width: 100%;
 			left: 0;
 			top: 0;
-			background-color: blue;
-			/*opacity: 0.6;*/
+			background-color: black;
+			opacity: 0.6;
 			display: none;
 			z-index: 3;
 		}
 
-		.media img {
+		.media.image {
 			left: 50%; top: 50%;
+			opacity: 1;
 			margin-left: -225px;
-			margin-top: -75px;
-			position: absolute;
-		}
-
-		.home {
-			height: 50px; width: 100px;
-			bottom: 0; right: 0;
+			margin-top: -130px;
 			position: fixed;
-			margin: 5px;
-			border-radius: 2px;
-			background-color: orange;
-			text-align: center;
-			padding-top: 20px;
+			z-index: 4;
+			display: none;
+			padding: 0;
 		}
 
-		.home a {
-			text-decoration: none;
-			color: black;
-			font-family: sans-serif;
+		.media.link {
+			margin: 0;
+			padding: 0;
+			width: 150px; height: 150px;
+			position: fixed;
+		}
+
+		.media.title {
+			color: white;
+			font-family: CircularBold;
 			font-size: 24px;
+			text-align: center;
+			margin: 12px;
+		}
+
+		.video {
+			display: none;
+		}
+
+		.video.backdrop {
+			position: fixed;
+			height: 100%;
+			width: 100%;
+			left: 0;
+			top: 0;
+			background-color: black;
+			opacity: 0.6;
+			z-index: 5;
+		}
+		.video.player {
+			position: fixed;
+			left: 10%; top: 3%;
+			width: 80%; height: 80%;
+			z-index: 6;
+			text-align: center;
+			color: white;
+			font-family: Circular;
+			font-size: 20px;
+		}
+
+		.video.player div {
+			width: 100%; height:100%;
 		}
 
 		#up_arrow {
@@ -182,8 +240,10 @@
 	<script src="../Scripts/jquery-ui-1.10.4.min.js"></script>
 	<!--script src="../Scripts/jquery-mobile-1.4.2.min.js"></script <== BAD COPY: GET NEW LOCAL COPY OF MOBILE LIBRARY -->
 	<script src="../Scripts/jquery-ui-touch-punch-0.2.3.min.js"></script>
-	<script src="../Scripts/jquery-scrollTo.min.js"></script>
-	<script src="../Scripts/jquery-colorbox-min.js"></script>
+	<!--script src="../Scripts/jquery-scrollTo.min.js"></script-->
+	<script src="../Scripts/jquery-scrollTo-iOSPatch.js"></script>
+	<script src="../Scripts/jquery.colorbox-min.js"></script>
+	<!--script src="../Scripts/animatedScroll-1.1.5.min.js"></script-->
 
 </head>
 
@@ -216,28 +276,162 @@
 	</table>
 	
 	<div class="wrapper">
-		<div class="qrcode">
-		
+		<div class="field">
 			<table id="overlay">
 				<!-- 10 x 10 Table filled in by the script below -->
 			</table>
 		</div>
 	</div>
 
-	<div class="media"><img src="Spielraume_pngs/Spielraume_pngs/Apokalypse.png"></div>
+	<div class="media backdrop"></div>
+	<div class="media image">
+		<p class= "media title"></p>
+		<div class="media link left"></div>
+		<div class="media link right" style="margin-left:300px"></div>
+		<img src="">
+	</div>
 
-	<div class="home"><a href="../index.html">Home</a></div>
+	<div class="video backdrop"></div>
+	<div class="video player left">
+		<p></p>
+		<div></div>
+	</div>
+	<div class="video player right">
+		<p></p>
+		<div></div>
+	</div>
+
+	<!--div class="home"><a href="../index.html">Home</a></div-->
 
 	<script>
+		
+		/*
+		*----------------JAVASCRIPT VARIABLES----------------------
+		*/
 		var cells_with_links = {}; // a hash that holds the x and y coordinates of the cells containing links
 		var current_cell; // a 1x2 array representing the row and column of the currently centered cell
+		function mediaLink(title, image, left_link, right_link) {
+			this.title = title;
+			this.image = image;
+			this.left_link = left_link;
+			this.right_link = right_link;
+		}
 
+		var apokalypse = new mediaLink(
+			'Apokalypse',
+			'Spielraume_pngs/Spielraume_pngs/Apokalypse.png',
+			{title:'The Apocalypse, Albrecht Dürer',video:'YbFZg-vcDs'},
+			{title:'Darksiders',video:'5cDSLhBk2nQ'}
+		);
+		var kultur = new mediaLink(
+			'Das Spiel in der Kultur',
+			'Spielraume_pngs/Spielraume_pngs/Das_Spiel_in_der_Kultur.png',
+			{title:'MOMANY',video:'dfvlLwYXUcU'},
+			{title:'Video Game Culture',video:'K-qT4KTEDmk'}
+		);
+		var diesseits = new mediaLink(
+			'Diesseits Jenseits',
+			'Spielraume_pngs/Spielraume_pngs/Diesseits_Jenseits.png',
+			{title:'The Plan',video:'8EFGmvDb1KU'},
+			{title:'Hieronymus Bosch',video:'zXt2S5nWrA0'}
+		);
+		var dystopische = new mediaLink(
+			'Dystopische Städte',
+			'Spielraume_pngs/Spielraume_pngs/dystopische_stadte.png',
+			{title:'Metropolis',video:'h0AlrH_K7Ko'},
+			{title:'ANNO 2070',video:'6ONqSVh_EfM'}
+		);
+		var emotionen = new mediaLink(
+			'Emotionen',
+			'Spielraume_pngs/Spielraume_pngs/Emotionen.png',
+			{title:'Fifa',video:'-4ycZ509Wxk'},
+			{title:'You\'ll Never Walk Alone',video:'gteDQCFG9Po'}
+		);
+		var fabelwesen = new mediaLink(
+			'Fabelwesen',
+			'Spielraume_pngs/Spielraume_pngs/Fabelwesen.png',
+			{title:'Guild Wars 2 Concept Art',video:'IUuxw0tGkVE'},
+			{title:'Schwarze Romantik',video:'_aQU81VX7lw'}
+		);
+		var gender = new mediaLink(
+			'Gender in Games',
+			'Spielraume_pngs/Spielraume_pngs/Gender_in_Games.png',
+			{title:'Beyond Two Souls',video:'TnUltxjNaDo'},
+			{title:'Excuse Me Princess',video:'hPYcASQL_IA'}
+		);
+		var geschicklichkeit = new mediaLink(
+			'Geschicklichkeit',
+			'Spielraume_pngs/Spielraume_pngs/Geschicklichkeit.png',
+			{title:'Mirror\'s Edge',video:'2N1TJP1cxmo'},
+			{title:'Parkour and Free Running',video:'8DKQJceXQio'}
+		);
+		var avatare = new mediaLink(
+			'Individualisierung Avatare',
+			'Spielraume_pngs/Spielraume_pngs/Individualisierung_Avatare.png',
+			{title:'Carnival Rio de Janeiro',video:'kTc3pv7d5vY'},
+			{title:'Cosplay',video:'9aFMKxhdpzc'}
+		);
+		var massenphenomen = new mediaLink(
+			'Massenphenomen',
+			'Spielraume_pngs/Spielraume_pngs/Massenphenomen.png',
+			{title:'League of Legends',video:'NFQPUCu3reg'},
+			{title:'Colour Festival',video:'Hh-o5g4tLVE'}
+		);
+		var mensch = new mediaLink(
+			'Mensch Maschine',
+			'Spielraume_pngs/Spielraume_pngs/Mensch_Maschine.png',
+			{title:'Deus Ex: Human Revolution Serif Industries',video:'UG_oThcYsn0'},
+			{title:'Real Humans Trailer',video:'iwh3xxozlZs'}
+		);
+		var mythen = new mediaLink(
+			'Mythen',
+			'Spielraume_pngs/Spielraume_pngs/Mythen.png',
+			{title:'Year Walk',video:'LVz_MhMsAvs'},
+			{title:'Bioshock Infinite',video:'LUXT0axtAPc'}
+		);
+		var narration = new mediaLink(
+			'Narration',
+			'Spielraume_pngs/Spielraume_pngs/Narration.png',
+			{title:'Heavy Rain',video:'fMK6sTnMxBI'},
+			{title:'Umberto Eco',video:'vimeo'}
+		);
+		var spielraume = new mediaLink(
+			'Spielräume',
+			'Spielraume_pngs/Spielraume_pngs/Spielraume.png',
+			{title:'Gone Home',video:'x5KJzLsyfBI'},
+			{title:'Skyrim VR',video:'k7n5kRRHDpw'}
+		);
+		var great = new mediaLink(
+			'The Great Game',
+			'Spielraume_pngs/Spielraume_pngs/The_Great_Game.png',
+			{title:'Battlefield 3 Simulator',video:'TQ0gjNOofaQ'},
+			{title:'POK, the game of life and death',video:'OY7Wbew-3UU'}
+		);
+		var urangste = new mediaLink(
+			'Urängste',
+			'Spielraume_pngs/Spielraume_pngs/Urangste.png',
+			{title:'Goya\'s Caprichos - The sleep produces monsters',video:'StCDWenKKFw'},
+			{title:'LIMBO',video:'cHjt8LNaUT8'}
+		);
+		var weltall = new mediaLink(
+			'Weltall',
+			'Spielraume_pngs/Spielraume_pngs/Weltall.png',
+			{title:'2001: Space Odyssey',video:'E8TABIFAN4o'},
+			{title:'Broken Age',video:'rCP30fPc4J8'}
+		);
+
+		var media_array = [apokalypse,kultur,diesseits,dystopische,emotionen,fabelwesen,gender,geschicklichkeit,avatare,massenphenomen,mensch,mythen,narration,spielraume,great,urangste,weltall];
+
+		/*
+		*--------------------BASIC JQUERY----------------------
+		*/
 		$(document).ready(function() {
 
 			$(".start_screen").click(function() {
 				$(this).fadeOut();
-				$(".wrapper").show();
-				$(".wrapper").css('padding', '750px');
+				$(".wrapper").show(400, function() {
+					$("#overlay").css('background-repeat', 'no-repeat').css('background-size', 'cover').css('background-image','url(\"qrcode_final.png\")');
+				});
 				placeLinks();
 			});
 						
@@ -250,6 +444,20 @@
 				} else {
 					showArrowTable();
 				}
+			});
+
+			$(".backdrop").click(function() {
+				if ($(this).hasClass("video")) {
+					$(".video").fadeOut();
+					$(".video.player div").html("");
+				} else {
+					$(".media").fadeOut();
+					if (checkGameEnd()) endGame();
+				}
+			});
+
+			$(".media.link").click(function() {
+				showVideo($(this));
 			});
 
 		});
@@ -273,7 +481,11 @@
 					leftPosition = (elOffset.left + (elWidth/2) - (viewportWidth/2));
 
 			$.scrollTo({top:topPosition, left:leftPosition}, 800);
-
+			//$.scrollTo($(cell), 800, {'axis':'y'});
+			//$.scrollTo($(cell), 800, {'axis':'x'});
+			//$(cell).animatedScroll({duration:'normal', easing:'easeOutExpo'});
+			//window.setTimeout(function(){$.scrollTo({top:topPosition, left:leftPosition}, 400, {'axis':'y'})});
+			//window.setTimeout(function(){$.scrollTo({top:topPosition, left:leftPosition}, 400, {'axis':'x'})});
 			var row = getRow($cell),
 				col = getCol($cell);
 			current_cell = [row, col];
@@ -297,11 +509,12 @@
 				#overlay table
 		*/
 		function placeLinks() {
+			var used_media_array = [];
 			for (var i = 0; i < 9; i++) {
 				var randomRow = Math.floor(Math.random() * 10);
-				var randomCol = Math.floor(Math.random() * 10)
+				var randomCol = Math.floor(Math.random() * 10);
 				
-				if (i == 8) {
+				if (i === 8) {
 					setTimeout(function() {
 						var $randomCell = $("#cell_" + randomRow + "_" + randomCol);
 						$randomCell.addClass("clicked");
@@ -310,15 +523,16 @@
 					}, 200);
 				} else {
 					var coordinates = randomRow + "_" + randomCol;
-					cells_with_links[coordinates] = false;
+					var random_media = Math.floor(Math.random() * 17);
+					
+					while (used_media_array.indexOf(random_media) >= 0) {
+						random_media = Math.floor(Math.random() * 17);
+					}
+
+					cells_with_links[coordinates] = {found:false, media:media_array[random_media]};
+					used_media_array.push(random_media);
 				};
 			};
-			var links = [];
-			for (var key in cells_with_links) {
-				links.push(key + ": " + cells_with_links[key] + "\n");
-			}
-
-			alert(links);
 		};
 
 		/*
@@ -328,9 +542,6 @@
 			if (cell.hasClass("clicked")) {
 				return true;
 			}
-
-			//var row = getRow(cell),
-			//	col = getCol(cell);
 
 			var row_check = Math.abs(current_cell[0] - getRow(cell)),
 				col_check = Math.abs(current_cell[1] - getCol(cell));
@@ -368,18 +579,20 @@
 			Handles clicks on valid table cells
 		*/
 		function clickCell( cell ) {
-			
 			if (!$(cell).hasClass("clicked")) {
 				$(cell).addClass("clicked");
 				$(cell).children().fadeOut();
+			} else if ($(cell).children().hasClass("link_button")) {
+				//window.setTimeout(scrollToCell($(cell)));
+				scrollToCell($(cell));
+				showMediaThumbnail($(cell));
 			}
 
 			var coordinate = cell.attr('id').substring(5,8);
 			if (cells_with_links.hasOwnProperty(coordinate)) {
-				if (!cells_with_links[coordinate]) {
+				if (!(cells_with_links[coordinate].found)) {
 					showLink( $(cell) );
-					cells_with_links[coordinate] = true;
-					//linksfound++;
+					cells_with_links[coordinate].found = true;
 				};
 			};
 			scrollToCell($(cell));
@@ -393,9 +606,84 @@
 		*/
 		function showLink( cell ) {
 			var random_button = Math.floor((Math.random() * 5) + 1);
-			$(cell).html("<<img src=\"Buttons/Buttons/Buttons-0" + random_button + ".jpg\">");
+			$(cell).html("<img class=\"link_button\" src=\"Buttons/Buttons/Buttons-0" + random_button + ".jpg\">");
 			$(cell).children().fadeIn();
 			return;
+		}
+
+		/*
+		*
+		*	Shows the Two-pictured thumbnail containing the two links
+		*
+		*/
+		function showMediaThumbnail( cell ) {
+			var key = cell.attr('id').substring(5,8);
+			var media = cells_with_links[key].media;
+			$(".media.image p").html(media.title);
+			$(".media.image img").attr("src", media.image);
+			$(".video.player.left").attr("data-url", media.left_link.video);
+			$(".video.player.left p").html(media.left_link.title);
+			$(".video.player.right").attr("data-url", media.right_link.video)
+			$(".video.player.right p").html(media.right_link.title);
+			$(".media").fadeIn();
+		}
+
+		/*
+		*
+		*
+		*	Shows the video for the link clicked
+		*
+		*/
+		function showVideo( link ) {
+			var videoID, title;
+
+			$(".video.backdrop").fadeIn();
+
+			if ($(link).hasClass("left")) {
+				videoID = $(".video.player.left").attr("data-url");
+				title = $(".video.player.left p").html();
+				$(".video.player.left div").html("<iframe class=\"youtube-player\" id=\"" + title + "\" style=\"width:inherit; height:inherit\" src=\"http://www.youtube.com/embed/" + videoID + "?autoplay=1\" frameborder=\"0\" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>");
+				$(".video.player.left").fadeIn();
+			} else {
+				videoID = $(".video.player.right").attr("data-url");
+				title = $(".video.player.right p").html();
+
+				if (videoID === 'vimeo') {
+					$(".video.player.right div").html("<iframe style=\"width:inherit; height:inherit\" src=\"https://player.vimeo.com/video/31923147?title=0&amp;byline=0&amp;portrait=0&amp;autoplay=1\" frameborder=\"0\" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>");
+				} else {
+					$(".video.player.right div").html("<iframe class=\"youtube-player\" id=\"" + title + "\" style=\"width:inherit; height:inherit\" src=\"http://www.youtube.com/embed/" + videoID + "?autoplay=1\" frameborder=\"0\" webkitallowfullscreen mozallowfullscreen allowfullscreen\"></iframe>");
+				}
+				$(".video.player.right").fadeIn();
+			}
+		}
+
+		/*
+		*
+		*
+		*	Game ends when 5 links have been found
+		*
+		*/
+		function checkGameEnd() {
+			var links_found = 0;
+			for (key in cells_with_links) {
+				if (cells_with_links[key].found) links_found++;
+			}
+			
+			if (links_found < 5) return false;
+			return true;
+		}
+
+		/*
+		*
+		*
+		*	Changes the background color, clears the window, and shrinks the qr code
+		*
+		*/
+		function endGame() {
+			$("body").css("background-color", "white");
+			$(".field").fadeOut(400, function() {
+				$(".wrapper").removeClass("wrapper").addClass("gameover").delay(500).fadeIn();
+			});
 		}
 	</script>
 

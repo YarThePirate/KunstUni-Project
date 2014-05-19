@@ -152,11 +152,6 @@
 			width: 445px; height: 250px;
 		}
 
-		#scroll_marker {
-			position: absolute;
-			left: 1080px; top: 1690px;
-		}
-
 		/*.home {
 			height: 50px; width: 100px;
 			bottom: 5px; right: 5px;
@@ -201,8 +196,6 @@
 	<div class="field">
 		<div class="floating_text" style="left:1756px; top:1694px; font-weight:bold;">EXHIBITION SPACE</div>
 		<div class="floating_text" style="left:1636px; top:2152px; font-size:14px;">Schauen Sie sich um! Just move around!</div>
-
-		<div id="scroll_marker"></div>
 		
 		<div class="exhibition" id="cali_gallery"></div>
 		<div class="exhibition" id="cali_book"></div>
@@ -288,7 +281,7 @@
 
 	<script>
 		$(document).ready(function() {
-			$.scrollTo($("#scroll_marker"), 0);
+			window.setTimeout(function(){window.scrollTo(1080, 1690);}, 0);
 
 			var $sequenz_pic = $(".sequenz_pic").colorbox({rel: 'sequenz_pic', transition: "fade"});
 				$er_liebt_mich_pic = $(".er_liebt_mich_pic").colorbox({rel:'er_liebt_mich_pic', transition:"fade"}),
